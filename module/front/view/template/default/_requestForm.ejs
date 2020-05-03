@@ -1,0 +1,116 @@
+
+<div class="page" data-page="requestForm" data-handler="RequestFormPage">
+
+    <div class="request-form loadable-container" data-handler="RequestForm">
+
+        <div class="loadable-content"></div>
+        <div class="loader"><i class="fa fa-spinner fa-spin"></i></div>
+
+        <template data-id="form">
+            <div class="page-head">
+                <ol class="breadcrumb">
+                    <li><a href="#" data-action="main" data-t="">Main</a></li>
+                    <li><a href="#" data-action="service" data-id="{{service}}" data-t="">Service</a></li>
+                    <li data-t="">Create request</li>
+                </ol>
+                <%- include('./_user') %>
+            </div>
+
+            <h1 data-t="meta.class.request">{{title}}</h1>
+
+            <h4 data-t="">Please fill out and submit this service request form</h4>
+
+            <div class="form-horizontal form" data-handler="Form">
+                <div class="form-error alert-danger alert"></div>
+                {{form}}
+            </div>
+
+            <div class="commands">
+                <button class="btn-primary btn" type="button" data-command="save">
+                    <span data-t="">Save</span>
+                </button>
+                <button class="btn-success btn" type="button" data-command="submit">
+                    <span data-t="">Submit</span>
+                </button>
+            </div>
+        </template>
+
+        <template data-id="group">
+            <fieldset class="form-base-group form-set {{active}}">
+                <legend>
+                    <div class="form-set-toggle">
+                        <span class="icon fas"></span>
+                        <span data-t="{{t}}" title="{{hint}}">{{label}}</span>
+                    </div>
+                </legend>
+                <div class="form-set-body form-base-group-body">{{content}}</div>
+            </fieldset>
+        </template>
+
+        <template data-id="attr">
+            <div class="form-attr form-group {{required}}">
+                <label class="col-md-3 control-label" data-t="meta.class.request"
+                       title="{{extHint}}">{{label}}</label>
+                <div class="col-md-9">
+                    {{content}}
+                    <div class="error-block"></div>
+                    <div class="hint-block" data-t="meta.class.request">{{hint}}</div>
+                </div>
+            </div>
+        </template>
+
+        <template data-id="boolean">
+            <div class="form-attr form-group">
+                <div class="col-md-9 col-md-offset-3">
+                    <div data-handler="FormBoolean">
+                        <input name="{{name}}" type="hidden" value="{{value}}" class="form-value">
+                        <div class="checkbox">
+                            <label title="{{extHint}}" data-t-title="meta.class.request">
+                                <input type="checkbox">
+                                <span data-t="meta.class.request">{{label}}</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="error-block"></div>
+                    <div class="hint-block" data-t="meta.class.request">{{hint}}</div>
+                </div>
+            </div>
+        </template>
+
+        <template data-id="static">
+            <input name="{{name}}" type="hidden" value="{{value}}" class="form-value">
+            <p class="form-control-static">{{displayValue}}</p>
+        </template>
+
+        <template data-id="string">
+            <input name="{{name}}" type="text" value="{{value}}" class="form-control form-value" {{required}}>
+        </template>
+
+        <template data-id="date">
+            <div data-handler="FormDate">
+                <input name="{{name}}" type="hidden" value="{{value}}" class="form-value">
+                <div class="input-group">
+                    <input type="text" class="datepicker form-control" {{required}}>
+                    <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                </div>
+            </div>
+        </template>
+
+        <template data-id="text">
+            <textarea name="{{name}}" rows="{{rows}}" class="form-control form-value" {{required}}>{{value}}</textarea>
+        </template>
+
+        <template data-id="select">
+            <div data-handler="FormSelect">
+                <select name="{{name}}" class="form-control form-value" {{required}}>
+                    <option value="" data-t="meta.class.request">---</option>
+                    {{options}}
+                </select>
+            </div>
+        </template>
+
+        <template data-id="error">
+            <div class="alert-danger alert">{{text}}</div>
+        </template>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+[
+  {
+    "_id": {
+      "$oid": "5e9a57f6473f3911cca9109d"
+    },
+    "_class": "icon",
+    "_creator": {
+      "$oid": "5e910308660ed207a0dd7b53"
+    },
+    "file": "2020-04/5e9a57f5473f3911cca9109b",
+    "_size": 3055,
+    "_mime": "image/svg+xml",
+    "_createdAt": {
+      "$date": "2020-04-18T01:29:26.564Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5e9a57fb473f3911cca910a0"
+    },
+    "_class": "icon",
+    "_creator": {
+      "$oid": "5e910308660ed207a0dd7b53"
+    },
+    "file": "2020-04/5e9a57fa473f3911cca9109e",
+    "_size": 2963,
+    "_mime": "image/svg+xml",
+    "_createdAt": {
+      "$date": "2020-04-18T01:29:31.387Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5e9a5801473f3911cca910a3"
+    },
+    "_class": "icon",
+    "_creator": {
+      "$oid": "5e910308660ed207a0dd7b53"
+    },
+    "file": "2020-04/5e9a57ff473f3911cca910a1",
+    "_size": 3988,
+    "_mime": "image/svg+xml",
+    "_createdAt": {
+      "$date": "2020-04-18T01:29:37.092Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5e9a5807473f3911cca910a6"
+    },
+    "_class": "icon",
+    "_creator": {
+      "$oid": "5e910308660ed207a0dd7b53"
+    },
+    "file": "2020-04/5e9a5806473f3911cca910a4",
+    "_size": 4528,
+    "_mime": "image/svg+xml",
+    "_createdAt": {
+      "$date": "2020-04-18T01:29:43.491Z"
+    }
+  }
+]

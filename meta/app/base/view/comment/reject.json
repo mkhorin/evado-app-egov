@@ -1,0 +1,22 @@
+{
+  "label": "Reject",
+  "attrs": [
+    {
+      "name": "request",
+      "orderNumber": 10
+    },
+    {
+      "name": "type",
+      "defaultValue": "rejected",
+      "orderNumber": 30
+    },
+    {
+      "name": "message",
+      "orderNumber": 40
+    },
+    {
+      "name": "documents",
+      "orderNumber": 50
+    }
+  ]
+}

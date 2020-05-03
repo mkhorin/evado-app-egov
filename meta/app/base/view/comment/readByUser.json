@@ -1,0 +1,30 @@
+{
+  "label": "Read by user",
+  "attrs": [
+    {
+      "name": "type",
+      "orderNumber": 10
+    },
+    {
+      "name": "_createdAt",
+      "orderNumber": 20
+    },
+    {
+      "name": "message",
+      "orderNumber": 30
+    },
+    {
+      "name": "documents",
+      "eagerLoading": true,
+      "orderNumber": 40
+    },
+    {
+      "name": "request",
+      "orderNumber": 60
+    },
+    {
+      "name": "_creator",
+      "orderNumber": 70
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+
+<div class="page" data-page="comment" data-handler="CommentPage">
+
+    <div class="page-head">
+        <ol class="breadcrumb">
+            <li><a href="#" data-action="main" data-t="">Main</a></li>
+            <li><a href="#" data-action="request" data-t="">Request</a></li>
+            <li data-t="">Comment</li>
+        </ol>
+        <%- include('./_user') %>
+    </div>
+
+    <div class="comment loadable-container" data-handler="Comment">
+
+        <div class="loadable-content"></div>
+        <div class="loader"><i class="fa fa-spinner fa-spin"></i></div>
+
+        <template data-id="item">
+            <h1 data-t="">Request comment</h1>
+
+            <div class="form-horizontal form">
+                <div class="form-attr form-group">
+                    <label class="col-md-2 control-label" data-t="">Type</label>
+                    <div class="col-md-10">
+                        <div class="form-control-static">{{type}}</div>
+                    </div>
+                </div>
+                <div class="form-attr form-group">
+                    <label class="col-md-2 control-label" data-t="">Created at</label>
+                    <div class="col-md-10">
+                        <div class="form-control-static">{{date}}</div>
+                    </div>
+                </div>
+                <div class="form-attr form-group">
+                    <label class="col-md-2 control-label" data-t="">Sender</label>
+                    <div class="col-md-10">
+                        <div class="form-control-static">{{sender}}</div>
+                    </div>
+                </div>
+                <div class="form-attr form-group">
+                    <label class="col-md-2 control-label" data-t="">Message</label>
+                    <div class="col-md-10">
+                        <div class="form-control-static">{{message}}</div>
+                    </div>
+                </div>
+
+                {{docs}}
+
+                <div class="form-group mt30">
+                    <div class="col-md-10 col-md-offset-2">
+                        <button class="btn-primary btn" type="button" data-action="request"
+                                data-id="{{request}}" data-request="{{requestName}}">
+                            <span data-t="">Back to request</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <template data-id="docs">
+            <div class="form-attr form-group">
+                <label class="col-md-2 control-label" data-t="">Documents</label>
+                <div class="col-md-10">
+                    <div class="form-control-static">
+                        <div class="doc-items">{{docs}}</div>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <template data-id="doc">
+            <div class="doc-item">
+                <div class="doc-item-name">{{name}}</div>
+                <div class="doc-item-link">
+                    <a href="<%- _url('/api/base/file/download') %>?v=.document&id={{_id}}" target="_blank">
+                        <span data-t="">Download</span>
+                    </a>
+                    <small>({{size}})</small>
+                </div>
+                <div class="doc-item-description">{{description}}</div>
+            </div>
+        </template>
+
+        <template data-id="static">
+            <p class="form-control-static">{{value}}</p>
+        </template>
+
+        <template data-id="empty">
+            <div class="alert-warning alert">
+                <span data-t="">You have no requests</span>
+            </div>
+        </template>
+
+        <template data-id="error">
+            <div class="alert-danger alert">{{text}}</div>
+        </template>
+    </div>
+</div>

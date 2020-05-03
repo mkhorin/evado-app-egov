@@ -1,0 +1,101 @@
+
+<div class="comment-list loadable-container" data-handler="CommentList" data-request="{{_id}}">
+
+    <div class="loadable-content"></div>
+    <div class="loader"><i class="fa fa-spinner fa-spin"></i></div>
+
+    <template data-id="list">
+        <div class="comment-commands">
+            <button class="btn-success btn" type="button" data-command="create">
+                <span data-t="">New comment</span>
+            </button>
+        </div>
+        <div class="comment-items">##items##</div>
+    </template>
+
+    <template data-id="item">
+        <div class="comment-item row-item" data-id="##_id##">
+            <div class="comment-item-date cell">
+                <div class="value">
+                    <a href="#" data-action="comment">##date##</a>
+                </div>
+            </div>
+            <div class="comment-item-sender cell">
+                <label data-t="">Sender</label>
+                <div class="value">##sender##</div>
+            </div>
+            <div class="comment-item-message cell">
+                <label data-t="">Message</label>
+                <div class="value">##message##</div>
+            </div>
+
+        </div>
+    </template>
+
+    <%- include('./_pagination', {start: '##', end: '##'}) %>
+
+    <template data-id="empty">
+        <div class="alert-warning alert">
+            <span data-t="">This request has no comments yet</span>
+        </div>
+    </template>
+
+    <template data-id="error">
+        <div class="alert-danger alert">##text##</div>
+    </template>
+
+    <div class="comment-modal modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" data-t="">New comment</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-error alert-danger alert hidden"></div>
+                    <div class="form" data-handler="Form">
+                        <div class="form-attr form-group required">
+                            <label class="control-label" data-t="">Message</label>
+                            <div class="form-control-static">
+                                <textarea class="form-control" name="message" rows="4"></textarea>
+                                <div class="error-block"></div>
+                            </div>
+                        </div>
+                        <div class="form-attr form-group">
+                            <div class="form-control-static">
+                                <div class="doc-uploader" data-handler="DocUploader">
+                                    <input type="hidden" name="documents"/>
+                                    <div class="doc-uploader-commands">
+                                        <button class="btn-default btn" type="button" data-command="addDoc">
+                                            <span data-t="">Add document</span>
+                                        </button>
+                                    </div>
+                                    <template data-id="docUploaderItem">
+                                        <div class="doc-uploader-item form-group">
+                                            <input type="file" class="form-control">
+                                            <div class="hint-block"></div>
+                                            <div class="error-block"></div>
+                                            <button class="btn-danger btn-sm btn" type="button" data-command="removeDoc">
+                                                <span class="glyphicon glyphicon-remove"></span>
+                                            </button>
+                                        </div>
+                                    </template>
+                                </div>
+                                <div class="error-block"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn-primary btn" data-command="send">
+                        <span data-t="">Send</span>
+                    </button>
+                    <button class="btn-default btn" data-dismiss="modal">
+                        <span data-t="">Cancel</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

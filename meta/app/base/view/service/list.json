@@ -1,0 +1,27 @@
+{
+  "label": "List",
+  "description": "Default list",
+  "attrs": [
+    {
+      "name": "active",
+      "orderNumber": 10
+    },
+    {
+      "name": "name",
+      "orderNumber": 20
+    },
+    {
+      "name": "brief",
+      "orderNumber": 30
+    },
+    {
+      "name": "request",
+      "orderNumber": 40
+    },
+    {
+      "name": "icon",
+      "orderNumber": 50,
+      "viewType": "thumbnail"
+    }
+  ]
+}

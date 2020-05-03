@@ -1,0 +1,283 @@
+{
+  "abstract": true,
+  "description": "Abstract service request. Descendants of this class implement the request form",
+  "header": [
+    "$class",
+    "._class"
+  ],
+  "label": "Request",
+  "attrs": [
+    {
+      "name": "_class",
+      "label": "Class",
+      "type": "string",
+      "viewType": "class",
+      "commonSearchable": false,
+      "eagerLoading": false,
+      "escape": false,
+      "hidden": false,
+      "history": false,
+      "multiple": false,
+      "orderNumber": 10,
+      "sortable": false,
+      "sortableRelation": false,
+      "readOnly": true,
+      "required": false,
+      "selectSearchable": false,
+      "trim": true,
+      "unique": false
+    },
+    {
+      "name": "_state",
+      "label": "State",
+      "type": "string",
+      "viewType": "state",
+      "commonSearchable": false,
+      "eagerLoading": false,
+      "escape": false,
+      "hidden": false,
+      "history": false,
+      "multiple": false,
+      "orderNumber": 20,
+      "sortable": false,
+      "sortableRelation": false,
+      "readOnly": true,
+      "required": false,
+      "selectSearchable": false,
+      "trim": true,
+      "unique": false
+    },
+    {
+      "name": "_creator",
+      "label": "Creator",
+      "type": "user",
+      "commonSearchable": false,
+      "eagerLoading": true,
+      "escape": true,
+      "hidden": false,
+      "history": false,
+      "multiple": false,
+      "orderNumber": 30,
+      "sortable": false,
+      "sortableRelation": false,
+      "readOnly": true,
+      "required": false,
+      "selectSearchable": false,
+      "trim": true,
+      "unique": false
+    },
+    {
+      "name": "comments",
+      "label": "Comments",
+      "type": "backref",
+      "commands": [
+        "create",
+        "edit"
+      ],
+      "commonSearchable": false,
+      "eagerLoading": false,
+      "escape": true,
+      "group": "comments",
+      "hidden": false,
+      "history": false,
+      "listView": "listByRequest",
+      "multiple": true,
+      "options": {
+        "css": "no-label"
+      },
+      "orderNumber": 40,
+      "sortable": false,
+      "sortableRelation": false,
+      "refAttr": "request",
+      "refClass": "comment",
+      "readOnly": false,
+      "required": false,
+      "selectSearchable": false,
+      "trim": true,
+      "unique": false
+    },
+    {
+      "name": "service",
+      "label": "Service",
+      "type": "backref",
+      "viewType": "relationSelect",
+      "commands": [
+        "edit"
+      ],
+      "commonSearchable": false,
+      "eagerLoading": true,
+      "escape": true,
+      "hidden": false,
+      "history": false,
+      "linkAttr": "_class",
+      "multiple": false,
+      "orderNumber": 50,
+      "sortable": false,
+      "sortableRelation": false,
+      "refAttr": "request",
+      "refClass": "service",
+      "readOnly": true,
+      "required": false,
+      "selectSearchable": false,
+      "trim": true,
+      "unique": false
+    },
+    {
+      "name": "lastComment",
+      "label": "Last comment",
+      "type": "calc",
+      "commonSearchable": false,
+      "eagerLoading": false,
+      "escape": true,
+      "expression": [
+        "$query",
+        "id",
+        "comment",
+        {
+          "order": {
+            "$key": -1
+          }
+        },
+        {
+          "request": ".$key"
+        }
+      ],
+      "hidden": true,
+      "history": false,
+      "multiple": false,
+      "orderNumber": 60,
+      "sortable": false,
+      "sortableRelation": false,
+      "readOnly": false,
+      "required": false,
+      "selectSearchable": false,
+      "trim": true,
+      "unique": false
+    }
+  ],
+  "behaviors": [
+    {
+      "type": "custom",
+      "orderNumber": 11,
+      "config": {
+        "Class": "component/meta/behavior/DraftBehavior"
+      }
+    }
+  ],
+  "groups": [
+    {
+      "name": "tabs",
+      "label": "Tabs",
+      "description": "Main tabs",
+      "orderNumber": 1000,
+      "type": "tabs"
+    },
+    {
+      "active": true,
+      "name": "form",
+      "label": "Form",
+      "description": "Group of attributes filled by user when creating a request",
+      "orderNumber": 1010,
+      "parent": "tabs"
+    },
+    {
+      "name": "comments",
+      "label": "Comments",
+      "orderNumber": 1020,
+      "parent": "tabs"
+    }
+  ],
+  "states": [
+    {
+      "name": "draft",
+      "label": "Draft",
+      "defaults": true,
+      "description": "User fills out a form. Validation of required fields is disabled by class behavior",
+      "readOnly": false
+    },
+    {
+      "name": "pending",
+      "label": "Pending",
+      "defaults": false,
+      "description": "Resolution making in progress",
+      "readOnly": false
+    },
+    {
+      "name": "rejected",
+      "label": "Rejected",
+      "defaults": false,
+      "description": "Negative resolution",
+      "readOnly": true
+    },
+    {
+      "name": "approved",
+      "label": "Approved",
+      "defaults": false,
+      "description": "Positive resolution",
+      "readOnly": true
+    }
+  ],
+  "transitions": [
+    {
+      "name": "submit",
+      "label": "Submit",
+      "description": "Send a request to work",
+      "nullStartState": false,
+      "startStates": [
+        "draft"
+      ],
+      "finalState": "pending",
+      "options": {
+        "comment": "Request submitted"
+      },
+      "orderNumber": 20
+    },
+    {
+      "name": "reject",
+      "label": "Reject",
+      "description": "Make a negative resolution",
+      "nullStartState": false,
+      "startStates": [
+        "pending"
+      ],
+      "finalState": "rejected",
+      "options": {
+        "confirmation": "Are you sure you want to reject this request?",
+        "comment": "Rejected",
+        "jam": "Request"
+      },
+      "orderNumber": 30
+    },
+    {
+      "name": "approve",
+      "label": "Approve",
+      "description": "Make a positive resolution",
+      "nullStartState": false,
+      "startStates": [
+        "pending"
+      ],
+      "finalState": "approved",
+      "options": {
+        "comment": "Approved"
+      },
+      "orderNumber": 40
+    },
+    {
+      "name": "reopen",
+      "label": "Reopen",
+      "description": "Return a request to work",
+      "nullStartState": false,
+      "startStates": [
+        "rejected",
+        "approved"
+      ],
+      "finalState": "pending",
+      "options": {
+        "comment": "Reopened",
+        "confirmation": "Are you sure you want to reopen this request?",
+        "jam": "Request"
+      },
+      "orderNumber": 50
+    }
+  ]
+}

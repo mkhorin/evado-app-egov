@@ -1,0 +1,18 @@
+{
+  "label": "Edit",
+  "description": "Default edit",
+  "attrs": [
+    {
+      "name": "name",
+      "orderNumber": 10
+    },
+    {
+      "name": "description",
+      "orderNumber": 20
+    },
+    {
+      "name": "file",
+      "orderNumber": 30
+    }
+  ]
+}

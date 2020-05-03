@@ -1,0 +1,25 @@
+{
+  "label": "Public view",
+  "attrs": [
+    {
+      "name": "name",
+      "orderNumber": 20
+    },
+    {
+      "name": "description",
+      "orderNumber": 30
+    },
+    {
+      "name": "brief",
+      "orderNumber": 30
+    },
+    {
+      "name": "request",
+      "orderNumber": 40
+    },
+    {
+      "name": "icon",
+      "orderNumber": 50
+    }
+  ]
+}

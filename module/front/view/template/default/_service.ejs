@@ -1,0 +1,47 @@
+
+<div class="page" data-page="service" data-handler="ServicePage">
+
+    <div class="service loadable-container" data-handler="Service">
+
+        <div class="loadable-content"></div>
+        <div class="loader"><i class="fa fa-spinner fa-spin"></i></div>
+
+        <template data-id="service">
+            <div class="page-head">
+                <ol class="breadcrumb">
+                    <li><a href="#" data-action="main" data-t="">Main</a></li>
+                    <li data-t="meta.class.service">{{name}}</li>
+                </ol>
+                <%- include('./_user') %>
+            </div>
+
+            <div class="icon-title clearfix">
+                <img data-src="<%- _url('/api/base/file/download') %>?v=.icon&id={{icon}}"
+                     class="pull-left thumbnail-sm thumbnail-clear thumbnail img-responsive" alt="{{name}}">
+                <h1 data-t="meta.class.service">{{name}}</h1>
+                <h3 data-t="meta.class.service" class="subtitle">{{brief}}</h3>
+            </div>
+
+            <div class="description">{{description}}</div>
+            {{fillForm}}
+        </template>
+
+        <template data-id="unavailable">
+            <div class="alert-warning alert">
+                <span data-t="">Unfortunately, the service request form is currently unavailable</span>
+            </div>
+        </template>
+
+        <template data-id="fillForm">
+            <button class="btn-primary btn" type="button" data-action="fillForm"
+                    data-service="{{_id}}"
+                    data-request="{{request}}">
+                <span data-t="">Fill a form</span>
+            </button>
+        </template>
+
+        <template data-id="error">
+            <div class="alert-danger alert">{{text}}</div>
+        </template>
+    </div>
+</div>

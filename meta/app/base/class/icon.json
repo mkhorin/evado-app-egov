@@ -1,0 +1,37 @@
+{
+  "abstract": false,
+  "description": "Graphic representation of a service",
+  "label": "Icon",
+  "options": {
+    "css": "thumbnail-sm"
+  },
+  "attrs": [
+    {
+      "name": "file",
+      "label": "File",
+      "type": "file",
+      "commonSearchable": false,
+      "eagerLoading": false,
+      "escape": true,
+      "hidden": false,
+      "history": false,
+      "multiple": false,
+      "orderNumber": 10,
+      "sortable": false,
+      "sortableRelation": false,
+      "readOnly": false,
+      "required": true,
+      "selectSearchable": false,
+      "trim": true,
+      "unique": false
+    }
+  ],
+  "behaviors": [
+    {
+      "type": "file",
+      "orderNumber": 10,
+      "imageOnly": true,
+      "accept": "image/svg+xml"
+    }
+  ]
+}

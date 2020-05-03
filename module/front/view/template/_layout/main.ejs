@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <base href="<%- _baseUrl %>">
+
+    <title>eGov Front</title>
+
+    <%- include(_view.get('_part/asset/style/defaults'), {skin: 'yellow'}) %>
+
+    <link rel="stylesheet" href="style/module.css">
+    <link rel="stylesheet" href="front/style/module.css">
+</head>
+<body class="hold-transition skin-yellow sidebar-mini">
+
+    <%- body %>
+
+    <%- include(_view.get('_part/other/modal')) %>
+
+    <%- include(_view.get('_part/asset/script/jam')) %>
+    <%- include(_view.get('_part/asset/script/messages')) %>
+    <%- include(_view.get('_part/asset/script/defaults')) %>
+
+    <script src="script/init.js"></script>
+
+    <%- scripts %>
+
+</body>
+</html>

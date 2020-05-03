@@ -1,0 +1,16 @@
+{
+  "label": "Public list",
+  "filter": {
+    "active": true
+  },
+  "attrs": [
+    {
+      "name": "name",
+      "orderNumber": 20
+    },
+    {
+      "name": "icon",
+      "orderNumber": 40
+    }
+  ]
+}

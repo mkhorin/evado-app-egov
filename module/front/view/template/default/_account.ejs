@@ -1,0 +1,62 @@
+
+<div class="page" data-page="account" data-handler="AccountPage">
+
+    <div class="page-head">
+        <ol class="breadcrumb">
+            <li><a href="#" data-action="main" data-t="">Main</a></li>
+            <li data-t="">Account</li>
+        </ol>
+        <%- include('./_user') %>
+    </div>
+
+    <h1 data-t="">My service requests</h1>
+
+    <div class="request-list loadable-container" data-handler="RequestList">
+
+        <div class="loadable-content"></div>
+        <div class="loader"><i class="fa fa-spinner fa-spin"></i></div>
+
+        <template data-id="list">
+            <div class="request-items">{{items}}</div>
+        </template>
+
+        <template data-id="item">
+            <div class="request-item row-item" data-id="{{_id}}"
+                 data-state="{{state}}"
+                 data-service="{{service}}"
+                 data-request="{{class}}">
+                <div class="request-item-id cell">
+                    <label data-t="">Request number</label>
+                    <div class="value">
+                        <a href="#" data-action="detail" title="{{_id}}">#{{_id}}</a>
+                    </div>
+                </div>
+                <div class="request-item-state cell">
+                    <label data-t="">Current state</label>
+                    <div class="value {{stateCss}}">{{stateTitle}}</div>
+                </div>
+                <div class="request-item-service cell">
+                    <label data-t="">Service</label>
+                    <div class="value">
+                        <a href="#" data-action="service" data-id="{{service}}">{{serviceTitle}}</a>
+                    </div>
+                </div>
+                <div class="request-item-icon cell">
+                    <img data-src="/api/base/file/download?v=.icon&id={{icon}}" class="thumbnail-clear thumbnail" alt="">
+                </div>
+            </div>
+        </template>
+
+        <%- include('./_pagination') %>
+
+        <template data-id="empty">
+            <div class="alert-warning alert">
+                <span data-t="">You have no requests</span>
+            </div>
+        </template>
+
+        <template data-id="error">
+            <div class="alert-danger alert">{{text}}</div>
+        </template>
+    </div>
+</div>

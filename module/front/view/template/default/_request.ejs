@@ -1,0 +1,89 @@
+
+<div class="page" data-page="request" data-handler="RequestPage">
+
+    <div class="page-head">
+        <ol class="breadcrumb">
+            <li><a href="#" data-action="main" data-t="">Main</a></li>
+            <li><a href="#" data-action="account" data-t="">Account</a></li>
+            <li data-t="">Request</li>
+        </ol>
+        <%- include('./_user') %>
+    </div>
+
+    <div class="request loadable-container" data-handler="Request">
+
+        <div class="loadable-content"></div>
+        <div class="loader"><i class="fa fa-spinner fa-spin"></i></div>
+
+        <template data-id="item">
+
+            <div class="icon-title clearfix">
+                <img data-src="<%- _url('/api/base/file/download') %>?v=.icon&id={{icon}}"
+                     class="pull-left thumbnail-sm thumbnail-clear thumbnail img-responsive" alt="{{name}}">
+                <h1 data-t="meta.class.request">{{title}}</h1>
+                <h3 class="subtitle">
+                    <span data-t="">Current request state</span>:
+                    &nbsp;<b class="{{stateCss}}" data-t="meta.class.request">{{state}}</b>
+                </h3>
+            </div>
+            <div class="form-horizontal form" data-handler="Form">
+
+                <div class="tabs form-tabs" data-id="tabs">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-tab active" data-id="comments">
+                            <a href="#" data-t="">Comments</a>
+                        </li>
+                        <li class="nav-tab" data-id="form">
+                            <a href="#" data-t="">Form</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="form-base-group tab-pane active" data-id="comments">
+                            <%- include('./_comments') %>
+                        </div>
+                        <div class="form-base-group tab-pane" data-id="form">
+                            {{form}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <template data-id="group">
+            <fieldset class="form-base-group form-set {{active}}">
+                <legend>
+                    <div class="form-set-toggle">
+                        <span class="icon fas"></span>
+                        <span data-t="meta.class.request" title="{{hint}}">{{label}}</span>
+                    </div>
+                </legend>
+                <div class="form-set-body form-base-group-body">{{content}}</div>
+            </fieldset>
+        </template>
+
+        <template data-id="attr">
+            <div class="form-attr form-group {{required}}">
+                <label class="col-md-3 control-label" data-t="meta.class.request"
+                       title="{{extHint}}">{{label}}</label>
+                <div class="col-md-9">
+                    {{content}}
+                    <div class="error-block"></div>
+                </div>
+            </div>
+        </template>
+
+        <template data-id="static">
+            <p class="form-control-static">{{value}}</p>
+        </template>
+
+        <template data-id="empty">
+            <div class="alert-warning alert">
+                <span data-t="">You have no requests</span>
+            </div>
+        </template>
+
+        <template data-id="error">
+            <div class="alert-danger alert">{{text}}</div>
+        </template>
+    </div>
+</div>

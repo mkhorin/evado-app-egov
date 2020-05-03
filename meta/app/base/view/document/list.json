@@ -1,0 +1,18 @@
+{
+  "label": "List",
+  "description": "Default list",
+  "attrs": [
+    {
+      "name": "name",
+      "orderNumber": 20
+    },
+    {
+      "name": "description",
+      "orderNumber": 30
+    },
+    {
+      "name": "_size",
+      "orderNumber": 40
+    }
+  ]
+}

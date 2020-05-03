@@ -1,0 +1,22 @@
+{
+  "label": "Approve",
+  "attrs": [
+    {
+      "name": "request",
+      "orderNumber": 10
+    },
+    {
+      "name": "type",
+      "defaultValue": "approved",
+      "orderNumber": 30
+    },
+    {
+      "name": "message",
+      "orderNumber": 40
+    },
+    {
+      "name": "documents",
+      "orderNumber": 50
+    }
+  ]
+}

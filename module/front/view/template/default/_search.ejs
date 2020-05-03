@@ -1,0 +1,50 @@
+
+<div class="page" data-page="search" data-handler="SearchPage">
+
+    <div class="page-head">
+        <ol class="breadcrumb">
+            <li><a href="#" data-action="main" data-t="">Main</a></li>
+            <li data-t="">Search</li>
+        </ol>
+        <%- include('./_user') %>
+    </div>
+
+    <h1 data-t="">Public services</h1>
+
+    <form class="search-form" data-handler="Search">
+        <div class="input-group">
+            <input type="search" class="form-control" placeholder="Search for...">
+            <span class="input-group-btn">
+                <button class="btn btn-primary" type="submit">
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
+            </span>
+        </div>
+    </form>
+
+    <div class="item-list loadable-container" data-handler="SearchServiceList">
+
+        <div class="loadable-content"></div>
+        <div class="loader"><i class="fa fa-spinner fa-spin"></i></div>
+
+        <template data-id="list">
+            <div class="service-list">{{items}}</div>
+        </template>
+
+        <template data-id="error">
+            <div class="alert-danger alert">{{text}}</div>
+        </template>
+
+        <template data-id="item">
+            <div class="service-row" data-id="{{_id}}">
+                <a href="#" data-action="service" title="{{name}}">
+                    <img data-src="<%- _url('/api/base/file/download') %>?v=.icon&id={{icon}}"
+                         class="thumbnail img-responsive" alt="{{name}}">
+                </a>
+                <h4><a href="#" data-action="service" title="{{name}}">{{name}}</a></h4>
+            </div>
+        </template>
+
+        <%- include('./_pagination') %>
+    </div>
+</div>
