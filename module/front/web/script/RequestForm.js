@@ -206,6 +206,7 @@ Front.RequestForm = class RequestForm extends Front.LoadableContent {
     }
 
     doneSubmit (data) {
+        this.toggleLoader(false);
         this.front.trigger('action:account');
     }
 

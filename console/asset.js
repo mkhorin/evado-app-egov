@@ -1,21 +1,21 @@
 'use strict';
 
 // set NODE_ENV=development
-// node console/asset --action install
-// node console/asset --action deploy
+// node console/asset --action install [--withModules true] [--module name]
+// node console/asset --action deploy [--withModules true] [--module name]
 
 const Application = require('../Application');
 const Console = require('evado/console/Console');
 const instance = new Console({Application});
-const {action} = Console.parseProcessArguments();
+const params = Console.parseProcessArguments();
 
 (async () => {
-    switch (action) {
+    switch (params.action) {
         case 'install':
-            await instance.installAssets();
+            await instance.installAssets(params);
             break;
         case 'deploy':
-            await instance.deployAssets();
+            await instance.deployAssets(params);
             break;
         default:
             instance.log('error', `Unknown action: ${action}`);

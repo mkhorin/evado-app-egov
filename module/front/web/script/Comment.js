@@ -2,6 +2,11 @@
 
 Front.Comment = class Comment extends Front.LoadableContent {
 
+    init () {
+        super.init();
+        this.on('click', '[data-command="backRequest"]', this.onBackRequest.bind(this));
+    }
+
     getUrl () {
         return super.getUrl('read');
     }
@@ -48,6 +53,9 @@ Front.Comment = class Comment extends Front.LoadableContent {
         return this.resolveTemplate('error', {text});
     }
 
+    onBackRequest () {
+        this.front.getHandler('RequestPage').showPage();
+    }
 };
 
 Front.CommentList = class CommentList extends Front.LoadableContent {

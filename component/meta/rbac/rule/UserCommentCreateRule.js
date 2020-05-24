@@ -1,5 +1,5 @@
 /**
- * @copyright Copyright (c) 2019 Maxim Khorin <maksimovichu@gmail.com>
+ * @copyright Copyright (c) 2020 Maxim Khorin <maksimovichu@gmail.com>
  */
 'use strict';
 
@@ -11,13 +11,13 @@ module.exports = class UserCommentCreateRule extends Base {
 
     async execute () {
         const data = this.getPostData();
-        const requestId = data && data.request && data.request.links && data.request.links[0];
-        if (!requestId) {
+        const request = data && data.request && data.request.links && data.request.links[0];
+        if (!request) {
             return false;
         }
         const requestClass = this.getTarget().meta.getClass('request');
-        const query = requestClass.findById(requestId).and({_creator: this.getUser().getId()});
-        const state = await query.scalar('_state');
+        const query = requestClass.findById(request).and({[requestClass.CREATOR_ATTR]: this.getUserId()});
+        const state = await query.scalar(requestClass.STATE_ATTR);
         return state !== 'draft';
     }
 };

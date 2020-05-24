@@ -36,7 +36,7 @@ Front.Form = class Form extends Front.Element {
     }
 
     getValue (name) {
-        return this.getValueElement().val();
+        return this.getValueElement(name).val();
     }
 
     getValueElement (name) {

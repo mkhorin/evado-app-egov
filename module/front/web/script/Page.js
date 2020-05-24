@@ -16,6 +16,10 @@ Front.Page = class Page extends Front.Element {
     activate () {
         this.front.togglePage(this.name);
     }
+
+    showPage () {
+        this.front.showPage(this.name);
+    }
 };
 
 Front.MainPage = class MainPage extends Front.Page {
@@ -46,7 +50,7 @@ Front.ServicePage = class ServicePage extends Front.Page {
     }
 
     onService (event, {service}) {
-        this.front.showPage(this.name);
+        this.showPage();
         this.service.setInstance(service);
     }
 };
@@ -60,7 +64,7 @@ Front.RequestFormPage = class RequestFormPage extends Front.Page {
     }
 
     onFillForm (event, {service, request, id}) {
-        this.front.showPage(this.name);
+        this.showPage();
         this.form.id = id;
         this.form.draft = !!id;
         this.form.setService(service);
@@ -82,7 +86,7 @@ Front.AccountPage = class AccountPage extends Front.Page {
     }
 
     onAccount (event) {
-        this.front.showPage(this.name);
+        this.showPage();
     }
 };
 
@@ -95,7 +99,7 @@ Front.RequestPage = class RequestPage extends Front.Page {
     }
 
     onRequest (event, {request, id}) {
-        this.front.showPage(this.name);
+        this.showPage();
         this.request.setRequest(id, request);
     }
 };
@@ -109,7 +113,7 @@ Front.CommentPage = class CommentPage extends Front.Page {
     }
 
     onComment (event, {request, requestName, id}) {
-        this.front.showPage(this.name);
+        this.showPage();
         this.find('[data-action="request"]')
             .attr('data-id', request)
             .attr('data-request', requestName);

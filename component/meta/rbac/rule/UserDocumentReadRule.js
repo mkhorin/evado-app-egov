@@ -1,5 +1,5 @@
 /**
- * @copyright Copyright (c) 2019 Maxim Khorin <maksimovichu@gmail.com>
+ * @copyright Copyright (c) 2020 Maxim Khorin <maksimovichu@gmail.com>
  */
 'use strict';
 
@@ -15,7 +15,7 @@ module.exports = class UserDocumentReadRule extends Base {
         }
         const model = this.getTarget();
         const requestClass = model.class.meta.getClass('request');
-        const requests = await requestClass.find().and({_creator: this.getUser().getId()}).ids();
+        const requests = await requestClass.findByCreator(this.getUserId()).ids();
         const commentClass = requestClass.meta.getClass('comment');
         const query = commentClass.find().and({
             request: requests,
@@ -26,7 +26,7 @@ module.exports = class UserDocumentReadRule extends Base {
 
     async getObjectFilter () {
         const requestClass = this.getTarget().meta.getClass('request');
-        const requests = await requestClass.find().and({_creator: this.getUser().getId()}).ids();
+        const requests = await requestClass.findByCreator(this.getUserId()).ids();
         const commentClass = requestClass.meta.getClass('comment');
         const documents = await commentClass.find().and({request: requests}).column('documents');
         return {_id: [].concat(...documents)};

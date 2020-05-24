@@ -160,7 +160,7 @@ class Front {
 
     onRequest (event) {
         event.preventDefault();
-        const id = this.getActionTarget(event, 'id');
+        const id = this.getActionTarget(event);
         const request = this.getActionTarget(event, 'request');
         this.trigger(this.getAuthAction('request'), {id, request});
     }
@@ -233,15 +233,11 @@ Front.AjaxQueue = class AjaxQueue {
         return deferred;
     }
 
-    abort (deferred) {
+    remove (deferred) {
         const index = this.getTaskIndex(deferred);
-        if (index === undefined) {
-            return false;
+        if (index !== undefined) {
+            this._tasks.splice(index, 1);
         }
-        if (index === 0) {
-            return this.next();
-        }
-        this._tasks.splice(index, 1);
     }
 
     getTaskIndex (deferred) {
@@ -272,11 +268,10 @@ Front.AjaxQueue = class AjaxQueue {
     }
 
     next () {
-        this.clearXhr();
         this.execute();
     }
 
-    clearXhr () {
+    abort () {
         if (this._xhr) {
             this._xhr.abort();
             this._xhr = null;

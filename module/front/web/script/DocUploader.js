@@ -78,7 +78,7 @@ Front.DocUploader = class DocUploader extends Front.Element {
     }
 
     changeReadyState () {
-        if (this.xhr.readyState === 4) {
+        if (this.xhr.readyState === XMLHttpRequest.DONE) {
             this.xhr.status === 200
                 ? this.onUploadDone()
                 : this.onUploadFail();

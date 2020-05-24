@@ -1,5 +1,5 @@
-log
+/log
+/tests
+/temp
 node_modules
-tests
 config/*.local.js
-temp

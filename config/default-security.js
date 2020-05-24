@@ -6,108 +6,108 @@ module.exports = {
 
     metaPermissions: [{
         description: 'Full access to data',
+        roles: 'administrator',
         type: 'allow',
-        roles: ['administrator'],
-        actions: ['all'],
-        targets: [{type: 'all'}]
+        actions: 'all',
+        targets: {type: 'all'}
     }, {
-        type: 'allow',
         roles: ['guest', 'manager', 'user'],
-        actions: ['read'],
-        targets: [{
+        type: 'allow',
+        actions: 'read',
+        targets: {
             type: 'class',
             class: ['icon', 'service']
-        }]
+        }
     }, {
+        roles: 'user',
         type: 'allow',
-        roles: ['user'],
-        actions: ['read'],
-        targets: [{
+        actions: 'read',
+        targets: {
             type: 'class',
             class: 'comment'
-        }],
+        },
         rule: 'User comment read'
     }, {
+        roles: 'user',
         type: 'allow',
-        roles: ['user'],
-        actions: ['create'],
-        targets: [{
+        actions: 'create',
+        targets: {
             type: 'class',
             class: 'comment'
-        }],
+        },
         rule: 'User comment create'
     }, {
+        roles: 'user',
         type: 'allow',
-        roles: ['user'],
-        actions: ['read'],
-        targets: [{
+        actions: 'read',
+        targets: {
             type: 'class',
             class: 'document'
-        }],
+        },
         rule: 'User document read'
     }, {
+        roles: 'user',
         type: 'allow',
-        roles: ['user'],
-        actions: ['create'],
-        targets: [{
+        actions: 'create',
+        targets: {
             type: 'class',
             class: 'document'
-        }]
+        }
     }, {
+        roles: 'user',
         type: 'allow',
-        roles: ['user'],
         actions: ['create', 'read'],
-        targets: [{
+        targets: {
             type: 'class',
             class: 'request'
-        }],
+        },
         rule: 'Author'
     }, {
         description: 'Users can only update their own draft requests',
+        roles: 'user',
         type: 'allow',
-        roles: ['user'],
-        actions: ['update'],
-        targets: [{
-            type: 'state',
-            class: 'request',
-            state: 'draft',
-        }],
-        rule: 'Author'
-    }, {
-        type: 'allow',
-        roles: ['manager'],
-        actions: ['read'],
-        targets: [{
-            type: 'class',
-            class: ['comment', 'document', 'icon', 'request', 'service']
-        }]
-    }, {
-        type: 'allow',
-        roles: ['manager'],
-        actions: ['create', 'update', 'delete'],
-        targets: [{
-            type: 'class',
-            class: ['comment', 'document']
-        }],
-        rule: 'Author'
-    }, {
-        type: 'allow',
-        roles: ['manager'],
-        actions: ['update'],
-        targets: [{
-            type: 'class',
-            class: 'request'
-        }]
-    }, {
-        description: 'Deny access to all draft requests',
-        type: 'deny',
-        roles: ['manager'],
-        actions: ['all'],
-        targets: [{
+        actions: 'update',
+        targets: {
             type: 'state',
             class: 'request',
             state: 'draft'
-        }]
+        },
+        rule: 'Author'
+    }, {
+        roles: 'manager',
+        type: 'allow',
+        actions: 'read',
+        targets: {
+            type: 'class',
+            class: ['comment', 'document', 'icon', 'request', 'service']
+        }
+    }, {
+        roles: 'manager',
+        type: 'allow',
+        actions: ['create', 'update', 'delete'],
+        targets: {
+            type: 'class',
+            class: ['comment', 'document']
+        },
+        rule: 'Author'
+    }, {
+        roles: 'manager',
+        type: 'allow',
+        actions: 'update',
+        targets: {
+            type: 'class',
+            class: 'request'
+        }
+    }, {
+        description: 'Deny access to all draft requests',
+        roles: 'manager',
+        type: 'deny',
+        actions: 'all',
+        targets: {
+            type: 'state',
+            class: 'request',
+            state: 'draft'
+        }
     }],
 
     permissions: {
@@ -151,13 +151,13 @@ module.exports = {
         },
         'user': {
             label: 'User',
-            description: 'Auto-assigned role for new user'
+            description: 'Default role for new registered user'
         }
     },
 
     assignments: {
-        'Adam': ['administrator'],
-        'Mario': ['manager']
+        'Adam': 'administrator',
+        'Mario': 'manager'
     },
 
     rules: {

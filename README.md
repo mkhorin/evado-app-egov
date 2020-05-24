@@ -13,7 +13,6 @@ Provision of services through an electronic request form.
 
 ## Docker installation
 
-### Build from Dockerfile
 Clone application to /app
 ```sh
 cd /app
@@ -35,11 +34,11 @@ Password: 123456
 
 ## Typical installation
 
-### Install environment
+#### Install environment
 - [Node.js](https://nodejs.org)
 - [MongoDB](https://www.mongodb.com/download-center/community)
 
-### Linux
+#### Linux
 Clone application to /app
 ```sh
 cd /app
@@ -48,7 +47,7 @@ NODE_ENV=development node console/install
 NODE_ENV=development node console/start
 ```
 
-### Windows
+#### Windows
 Clone application to c:/app
 ```sh
 cd c:/app
@@ -65,5 +64,5 @@ Email: a@a.a
 Password: 123456
 ```
 
-### Tutorial
+## Tutorial
 - [Build App Without Coding](http://nervebit.com)
