@@ -1,6 +1,6 @@
 {
   "name": "evado-app-egov",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "E-government App built on Evado Platform",
   "author": "Maxim Khorin",
   "license": "MIT",
@@ -12,15 +12,15 @@
     "url": "https://github.com/mkhorin/evado-app-egov.git"
   },
   "dependencies": {
-    "evado": "~1.4.3",
-    "evado-api-base": "~1.4.0",
-    "evado-api-navigation": "~1.3.0",
-    "evado-meta-base": "~1.4.0",
-    "evado-meta-navigation": "~1.3.0",
-    "evado-module-account": "~1.2.0",
-    "evado-module-admin": "~1.4.0",
-    "evado-module-office": "~1.4.0",
-    "evado-module-studio": "~1.4.0",
+    "evado": "~1.5.0",
+    "evado-api-base": "~1.5.0",
+    "evado-api-navigation": "~1.5.0",
+    "evado-meta-base": "~1.5.0",
+    "evado-meta-navigation": "~1.5.0",
+    "evado-module-account": "~1.5.0",
+    "evado-module-admin": "~1.5.0",
+    "evado-module-office": "~1.5.0",
+    "evado-module-studio": "~1.5.0",
     "sharp": "0.24.1"
   },
   "scripts": {

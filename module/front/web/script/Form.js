@@ -39,6 +39,10 @@ Front.Form = class Form extends Front.Element {
         return this.getValueElement(name).val();
     }
 
+    setValue (name, value) {
+        return this.getValueElement(name).val(value);
+    }
+
     getValueElement (name) {
         return this.find(`[name="${name}"]`);
     }

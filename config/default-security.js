@@ -61,7 +61,7 @@ module.exports = {
             type: 'class',
             class: 'request'
         },
-        rule: 'Author'
+        rule: 'Creator'
     }, {
         description: 'Users can only update their own draft requests',
         roles: 'user',
@@ -72,7 +72,7 @@ module.exports = {
             class: 'request',
             state: 'draft'
         },
-        rule: 'Author'
+        rule: 'Creator'
     }, {
         roles: 'manager',
         type: 'allow',
@@ -89,7 +89,7 @@ module.exports = {
             type: 'class',
             class: ['comment', 'document']
         },
-        rule: 'Author'
+        rule: 'Creator'
     }, {
         roles: 'manager',
         type: 'allow',
@@ -161,9 +161,9 @@ module.exports = {
     },
 
     rules: {
-        'Author': {
+        'Creator': {
             description: 'Check user is object creator',
-            config: '{"Class": "evado/component/meta/rbac/rule/AuthorRule"}'
+            config: '{"Class": "evado/component/meta/rbac/rule/UserRule", "attr": "_creator"}'
         },
         'User comment create': {
             description: 'User can create comments related to his own non-draft requests',
