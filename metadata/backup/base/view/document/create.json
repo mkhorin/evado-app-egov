@@ -1,0 +1,18 @@
+{
+  "label": "Create",
+  "description": "Default create",
+  "attrs": [
+    {
+      "name": "file",
+      "orderNumber": 10
+    },
+    {
+      "name": "name",
+      "orderNumber": 20
+    },
+    {
+      "name": "description",
+      "orderNumber": 30
+    }
+  ]
+}

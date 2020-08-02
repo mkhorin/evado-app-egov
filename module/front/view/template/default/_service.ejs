@@ -3,9 +3,6 @@
 
     <div class="service loadable-container" data-handler="Service">
 
-        <div class="loadable-content"></div>
-        <div class="loader"><i class="fa fa-spinner fa-spin"></i></div>
-
         <template data-id="service">
             <div class="page-head">
                 <ol class="breadcrumb">
@@ -16,7 +13,7 @@
             </div>
 
             <div class="icon-title clearfix">
-                <img data-src="<%- _url('/api/base/file/download') %>?v=.icon&id={{icon}}"
+                <img data-src="<%- _url('/api/base/file/download') %>?c=icon&id={{icon}}"
                      class="pull-left thumbnail-sm thumbnail-clear thumbnail img-responsive" alt="{{name}}">
                 <h1 data-t="meta.class.service">{{name}}</h1>
                 <h3 data-t="meta.class.service" class="subtitle">{{brief}}</h3>
@@ -43,5 +40,8 @@
         <template data-id="error">
             <div class="alert-danger alert">{{text}}</div>
         </template>
+
+        <div class="loadable-content"></div>
+        <div class="loader"><i class="fa fa-spinner fa-spin"></i></div>
     </div>
 </div>

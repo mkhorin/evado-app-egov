@@ -1,11 +1,11 @@
 'use strict';
 
 // set NODE_ENV=development
-// node console/security --action create-users // from configuration
-// node console/security --action create-user --name Name --email Email --password Password
-// node console/security --action create-security
-// node console/security --action change-password --email Email --password Password
-// node console/security --action assign-role --email Email --role Role
+// node console/security --action createUsers
+// node console/security --action createUser --name Name --email Email --password Password
+// node console/security --action createSecurity
+// node console/security --action changePassword --email Email --password Password
+// node console/security --action assignRole --email Email --role Role
 // node console/security --action export [--file default] [--users false] [--space 2]
 // node console/security --action import [--file default] [--users false] [--clear false] [--clearUsers false]
 // node console/security --action clear [--clearUsers false]
@@ -17,19 +17,19 @@ const params = Console.parseProcessArguments();
 
 (async () => {
     switch (params.action) {
-        case 'create-users':
+        case 'createUsers':
             await instance.createUsers(); // from configuration
             break;
-        case 'create-user':
+        case 'createUser':
             await instance.createUser(params);
             break;
-        case 'create-security':
+        case 'createSecurity':
             await instance.createSecurity(); // from configuration
             break;
-        case 'change-password':
+        case 'changePassword':
             await instance.changePassword(params);
             break;
-        case 'assign-role':
+        case 'assignRole':
             await instance.assignRole(params);
             break;
         case 'export':

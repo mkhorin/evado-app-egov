@@ -12,13 +12,10 @@
 
     <div class="request loadable-container" data-handler="Request">
 
-        <div class="loadable-content"></div>
-        <div class="loader"><i class="fa fa-spinner fa-spin"></i></div>
-
         <template data-id="item">
 
             <div class="icon-title clearfix">
-                <img data-src="<%- _url('/api/base/file/download') %>?v=.icon&id={{icon}}"
+                <img data-src="<%- _url('/api/base/file/download') %>?c=icon&id={{icon}}"
                      class="pull-left thumbnail-sm thumbnail-clear thumbnail img-responsive" alt="{{name}}">
                 <h1 data-t="meta.class.request">{{title}}</h1>
                 <h3 class="subtitle">
@@ -85,5 +82,8 @@
         <template data-id="error">
             <div class="alert-danger alert">{{text}}</div>
         </template>
+
+        <div class="loadable-content"></div>
+        <div class="loader"><i class="fa fa-spinner fa-spin"></i></div>
     </div>
 </div>

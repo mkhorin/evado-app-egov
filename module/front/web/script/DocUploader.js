@@ -66,7 +66,7 @@ Front.DocUploader = class DocUploader extends Front.Element {
     }
 
     upload () {
-        const url = this.front.getData('upload') + '?v=.document';
+        const url = this.front.getData('upload') + '?c=document';
         this.xhr = new XMLHttpRequest;
         this.xhr.open('POST', url);
         this.xhr.onreadystatechange = this.changeReadyState.bind(this);

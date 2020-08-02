@@ -24,9 +24,6 @@
 
     <div class="item-list loadable-container" data-handler="SearchServiceList">
 
-        <div class="loadable-content"></div>
-        <div class="loader"><i class="fa fa-spinner fa-spin"></i></div>
-
         <template data-id="list">
             <div class="service-list">{{items}}</div>
         </template>
@@ -38,7 +35,7 @@
         <template data-id="item">
             <div class="service-row" data-id="{{_id}}">
                 <a href="#" data-action="service" title="{{name}}">
-                    <img data-src="<%- _url('/api/base/file/download') %>?v=.icon&id={{icon}}"
+                    <img data-src="<%- _url('/api/base/file/download') %>?c=icon&id={{icon}}"
                          class="thumbnail img-responsive" alt="{{name}}">
                 </a>
                 <h4><a href="#" data-action="service" title="{{name}}">{{name}}</a></h4>
@@ -46,5 +43,8 @@
         </template>
 
         <%- include('./_pagination') %>
+
+        <div class="loadable-content"></div>
+        <div class="loader"><i class="fa fa-spinner fa-spin"></i></div>
     </div>
 </div>

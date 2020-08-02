@@ -23,9 +23,6 @@
 
     <div class="service-list loadable-container" data-handler="MainServiceList">
 
-        <div class="loadable-content"></div>
-        <div class="loader"><i class="fa fa-spinner fa-spin"></i></div>
-
         <template data-id="list">
             <div class="row">{{items}}</div>
         </template>
@@ -34,7 +31,7 @@
             <div class="col-sm-6 col-lg-3">
                 <div class="service-card" data-id="{{_id}}">
                     <a href="#" data-action="service">
-                        <img data-src="<%- _url('/api/base/file/download') %>?v=.icon&id={{icon}}"
+                        <img data-src="<%- _url('/api/base/file/download') %>?c=icon&id={{icon}}"
                              class="thumbnail img-responsive" alt="{{name}}">
                     </a>
                     <h3><a href="#" data-action="service" data-t="meta.class.service">{{name}}</a></h3>
@@ -45,5 +42,8 @@
         <template data-id="error">
             <div class="alert-danger alert">{{text}}</div>
         </template>
+
+        <div class="loadable-content"></div>
+        <div class="loader"><i class="fa fa-spinner fa-spin"></i></div>
     </div>
 </div>

@@ -29,7 +29,7 @@ module.exports = class DraftBehavior extends Base {
 
     async checkServiceActivity () {
         if (this.owner.isNew()) {
-            const service = await this.owner.related.resolve('service');
+            const service = await this.getRelated('service');
             if (!service || !service.get('active')) {
                 this.owner.addError('service', `Service is unavailable`);
             }
@@ -77,7 +77,7 @@ module.exports = class DraftBehavior extends Base {
     }
 
     createTransitComment (transition) {
-        const commentClass = this.owner.class.meta.getClass('comment');
+        const commentClass = this.getMetaClass('comment');
         const comment = this.owner.createByView(commentClass);
         comment.assign({
             type: 'event',

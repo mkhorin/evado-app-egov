@@ -253,14 +253,16 @@ Front.AjaxQueue = class AjaxQueue {
             return false;
         }
         const {deferred, args} = this._tasks.splice(0, 1)[0];
-        const data = {
+        const csrf = Jam.Helper.getCsrfToken();
+        const data = {csrf, ...args[1]};
+        const params = {
             method: 'post',
             contentType: 'application/json',
             url: args[0],
-            data: JSON.stringify(args[1])
+            data: JSON.stringify(data)
         };
-        this._xhr = $.ajax(data)
-            .always(()=> this._xhr = null)
+        this._xhr = $.ajax(params)
+            .always(() => this._xhr = null)
             .done(data => deferred.resolve(data))
             .fail(data => deferred.reject(data));
         deferred.done(this.next.bind(this));

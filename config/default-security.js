@@ -151,7 +151,7 @@ module.exports = {
         },
         'user': {
             label: 'User',
-            description: 'Default role for new registered user'
+            description: 'Default role for new registered users'
         }
     },
 

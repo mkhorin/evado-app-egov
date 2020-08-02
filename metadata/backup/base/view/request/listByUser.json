@@ -1,0 +1,27 @@
+{
+  "label": "List by user",
+  "filter": {
+    "_creator": "$user"
+  },
+  "order": {
+    "$key": -1
+  },
+  "attrs": [
+    {
+      "name": "_class",
+      "orderNumber": 10
+    },
+    {
+      "name": "_state",
+      "orderNumber": 20
+    },
+    {
+      "name": "_creator",
+      "orderNumber": 30
+    },
+    {
+      "name": "service",
+      "orderNumber": 80
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "abstract": false,
+  "description": "File attached to a comment",
+  "label": "Document",
+  "attrs": [
+    {
+      "name": "file",
+      "label": "File",
+      "type": "file",
+      "commonSearchable": false,
+      "eagerLoading": false,
+      "escape": true,
+      "hidden": false,
+      "history": false,
+      "multiple": false,
+      "orderNumber": 10,
+      "sortable": false,
+      "sortableRelation": false,
+      "readOnly": false,
+      "required": true,
+      "selectSearchable": false,
+      "trim": true,
+      "unique": false
+    },
+    {
+      "name": "name",
+      "label": "Name",
+      "type": "string",
+      "commonSearchable": false,
+      "eagerLoading": false,
+      "escape": true,
+      "hidden": false,
+      "history": false,
+      "multiple": false,
+      "orderNumber": 20,
+      "sortable": false,
+      "sortableRelation": false,
+      "readOnly": false,
+      "required": true,
+      "selectSearchable": false,
+      "trim": true,
+      "unique": false
+    },
+    {
+      "name": "description",
+      "label": "Description",
+      "type": "text",
+      "commonSearchable": false,
+      "eagerLoading": false,
+      "escape": true,
+      "hidden": false,
+      "history": false,
+      "multiple": false,
+      "orderNumber": 30,
+      "sortable": false,
+      "sortableRelation": false,
+      "readOnly": false,
+      "required": false,
+      "selectSearchable": false,
+      "trim": true,
+      "unique": false
+    },
+    {
+      "name": "_size",
+      "label": "Size",
+      "type": "integer",
+      "commonSearchable": false,
+      "eagerLoading": false,
+      "escape": true,
+      "hidden": false,
+      "history": false,
+      "multiple": false,
+      "options": {
+        "format": "bytes"
+      },
+      "orderNumber": 40,
+      "sortable": false,
+      "sortableRelation": false,
+      "readOnly": true,
+      "required": false,
+      "selectSearchable": false,
+      "trim": true,
+      "unique": false
+    }
+  ],
+  "behaviors": [
+    {
+      "type": "file",
+      "orderNumber": 10,
+      "imageOnly": false,
+      "maxSize": 10000000,
+      "nameAttr": "name"
+    }
+  ]
+}

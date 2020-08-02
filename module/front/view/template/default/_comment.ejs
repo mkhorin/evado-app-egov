@@ -12,9 +12,6 @@
 
     <div class="comment loadable-container" data-handler="Comment">
 
-        <div class="loadable-content"></div>
-        <div class="loader"><i class="fa fa-spinner fa-spin"></i></div>
-
         <template data-id="item">
             <h1 data-t="">Request comment</h1>
 
@@ -71,7 +68,7 @@
             <div class="doc-item">
                 <div class="doc-item-name">{{name}}</div>
                 <div class="doc-item-link">
-                    <a href="<%- _url('/api/base/file/download') %>?v=.document&id={{_id}}" target="_blank">
+                    <a href="<%- _url('/api/base/file/download') %>?c=document&id={{_id}}" target="_blank">
                         <span data-t="">Download</span>
                     </a>
                     <small>({{size}})</small>
@@ -93,5 +90,8 @@
         <template data-id="error">
             <div class="alert-danger alert">{{text}}</div>
         </template>
+
+        <div class="loadable-content"></div>
+        <div class="loader"><i class="fa fa-spinner fa-spin"></i></div>
     </div>
 </div>

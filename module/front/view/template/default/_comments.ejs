@@ -1,9 +1,6 @@
 
 <div class="comment-list loadable-container" data-handler="CommentList" data-request="{{_id}}">
 
-    <div class="loadable-content"></div>
-    <div class="loader"><i class="fa fa-spinner fa-spin"></i></div>
-
     <template data-id="list">
         <div class="comment-commands">
             <button class="btn-success btn" type="button" data-command="create">
@@ -43,6 +40,9 @@
     <template data-id="error">
         <div class="alert-danger alert">##text##</div>
     </template>
+
+    <div class="loadable-content"></div>
+    <div class="loader"><i class="fa fa-spinner fa-spin"></i></div>
 
     <div class="comment-modal modal" tabindex="-1" role="dialog">
         <div class="modal-dialog">

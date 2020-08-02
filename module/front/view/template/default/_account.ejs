@@ -13,9 +13,6 @@
 
     <div class="request-list loadable-container" data-handler="RequestList">
 
-        <div class="loadable-content"></div>
-        <div class="loader"><i class="fa fa-spinner fa-spin"></i></div>
-
         <template data-id="list">
             <div class="request-items">{{items}}</div>
         </template>
@@ -42,7 +39,7 @@
                     </div>
                 </div>
                 <div class="request-item-icon cell">
-                    <img data-src="/api/base/file/download?v=.icon&id={{icon}}" class="thumbnail-clear thumbnail" alt="">
+                    <img data-src="/api/base/file/download?c=icon&id={{icon}}" class="thumbnail-clear thumbnail" alt="">
                 </div>
             </div>
         </template>
@@ -58,5 +55,8 @@
         <template data-id="error">
             <div class="alert-danger alert">{{text}}</div>
         </template>
+
+        <div class="loadable-content"></div>
+        <div class="loader"><i class="fa fa-spinner fa-spin"></i></div>
     </div>
 </div>

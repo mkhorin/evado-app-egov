@@ -8,7 +8,7 @@ Application for receiving and processing user requests for services.
   
 Provision of services through an electronic request form.
 
-- [Evado Platform](https://github.com/mkhorin/evado)
+- [Evado Framework](https://github.com/mkhorin/evado)
 - [Step-by-step tutorial](http://nervebit.com)
 
 ## Docker installation
