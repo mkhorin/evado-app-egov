@@ -6,8 +6,8 @@ config/*.local.js
 /data/*
 !/data/default/
 
-/meta/*
-!/meta/app/
+/metadata/*
+!/metadata/app/
 
 /log/
 /upload/
