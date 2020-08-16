@@ -26,7 +26,7 @@ module.exports = {
             type: 'class',
             class: 'comment'
         },
-        rule: 'User comment read'
+        rule: 'commentRead'
     }, {
         roles: 'user',
         type: 'allow',
@@ -35,7 +35,7 @@ module.exports = {
             type: 'class',
             class: 'comment'
         },
-        rule: 'User comment create'
+        rule: 'commentCreation'
     }, {
         roles: 'user',
         type: 'allow',
@@ -44,7 +44,7 @@ module.exports = {
             type: 'class',
             class: 'document'
         },
-        rule: 'User document read'
+        rule: 'documentRead'
     }, {
         roles: 'user',
         type: 'allow',
@@ -61,7 +61,7 @@ module.exports = {
             type: 'class',
             class: 'request'
         },
-        rule: 'Creator'
+        rule: 'creator'
     }, {
         description: 'Users can only update their own draft requests',
         roles: 'user',
@@ -72,7 +72,7 @@ module.exports = {
             class: 'request',
             state: 'draft'
         },
-        rule: 'Creator'
+        rule: 'creator'
     }, {
         roles: 'manager',
         type: 'allow',
@@ -89,7 +89,7 @@ module.exports = {
             type: 'class',
             class: ['comment', 'document']
         },
-        rule: 'Creator'
+        rule: 'creator'
     }, {
         roles: 'manager',
         type: 'allow',
@@ -124,6 +124,9 @@ module.exports = {
         'moduleStudio': {
             label: 'Studio module',
             description: 'Access to Studio module'
+        },
+        'moduleApiBaseUpload': {
+            label: 'Upload files'
         }
     },
 
@@ -135,14 +138,15 @@ module.exports = {
                 'moduleAdmin',
                 'moduleOffice',
                 'moduleStudio',
-                'upload'
+                'moduleApiBaseUpload'
             ]
         },
         'manager': {
             label: 'Manager',
             description: 'Role for serving user requests',
             children: [
-                'moduleOffice'
+                'moduleOffice',
+                'moduleApiBaseUpload'
             ]
         },
         'guest': {
@@ -151,31 +155,47 @@ module.exports = {
         },
         'user': {
             label: 'User',
-            description: 'Default role for new registered users'
+            description: 'Default role for authenticated users',
+            children: [
+                'moduleApiBaseUpload'
+            ]
+        }
+    },
+
+    rules: {
+        'creator': {
+            label: 'Creator',
+            description: 'Check user is object creator',
+            config: {
+                Class: 'evado/component/meta/rbac/rule/UserRule',
+                attr: '_creator'
+            }
+        },
+        'commentCreation': {
+            label: 'Comment creation',
+            description: 'User can create comments related to his own non-draft requests',
+            config: {
+                Class: 'component/meta/rbac/rule/UserCommentCreateRule'
+            }
+        },
+        'commentRead': {
+            label: 'Comment read',
+            description: 'User can read comments related to his own requests',
+            config: {
+                Class: 'component/meta/rbac/rule/UserCommentReadRule'
+            }
+        },
+        'documentRead': {
+            label: 'Document read',
+            description: 'User can read documents related to his own requests',
+            config: {
+                Class: 'component/meta/rbac/rule/UserDocumentReadRule'
+            }
         }
     },
 
     assignments: {
         'Adam': 'administrator',
         'Mario': 'manager'
-    },
-
-    rules: {
-        'Creator': {
-            description: 'Check user is object creator',
-            config: '{"Class": "evado/component/meta/rbac/rule/UserRule", "attr": "_creator"}'
-        },
-        'User comment create': {
-            description: 'User can create comments related to his own non-draft requests',
-            config: '{"Class": "component/meta/rbac/rule/UserCommentCreateRule"}'
-        },
-        'User comment read': {
-            description: 'User can read comments related to his own requests',
-            config: '{"Class": "component/meta/rbac/rule/UserCommentReadRule"}'
-        },
-        'User document read': {
-            description: 'User can read documents related to his own requests',
-            config: '{"Class": "component/meta/rbac/rule/UserDocumentReadRule"}'
-        }
     }
 };

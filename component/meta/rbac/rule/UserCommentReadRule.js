@@ -20,8 +20,8 @@ module.exports = class UserCommentReadRule extends Base {
         return !!requestId;
     }
 
-    async getObjectFilter () {
-        const requestClass = this.getTarget().meta.getClass('request');
+    async getObjectFilter () { // filter objects in list
+        const requestClass = this.getBaseMeta().getClass('request');
         const query = requestClass.findByCreator(this.getUserId());
         return {request: await query.ids()};
     }

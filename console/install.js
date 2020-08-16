@@ -11,7 +11,7 @@ const params = Console.parseProcessArguments();
 (async () => {
     try {
         await instance.execute(async () => {
-            await instance.clearDatabase();
+            await instance.clearAll();
             await instance.deployAssets(params);
             await instance.createUsers();
             await instance.createSecurity();

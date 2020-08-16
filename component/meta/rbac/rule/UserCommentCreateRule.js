@@ -15,7 +15,7 @@ module.exports = class UserCommentCreateRule extends Base {
         if (!request) {
             return false;
         }
-        const requestClass = this.getTarget().meta.getClass('request');
+        const requestClass = this.getBaseMeta().getClass('request');
         const query = requestClass.findById(request).and({[requestClass.CREATOR_ATTR]: this.getUserId()});
         const state = await query.scalar(requestClass.STATE_ATTR);
         return state !== 'draft';

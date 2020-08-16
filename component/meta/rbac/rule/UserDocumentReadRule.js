@@ -24,10 +24,11 @@ module.exports = class UserDocumentReadRule extends Base {
         return !!(await query.id());
     }
 
-    async getObjectFilter () {
-        const requestClass = this.getTarget().meta.getClass('request');
+    async getObjectFilter () { // filter objects in list
+        const meta = this.getBaseMeta();
+        const requestClass = meta.getClass('request');
         const requests = await requestClass.findByCreator(this.getUserId()).ids();
-        const commentClass = requestClass.meta.getClass('comment');
+        const commentClass = meta.getClass('comment');
         const documents = await commentClass.find().and({request: requests}).column('documents');
         return {_id: [].concat(...documents)};
     }

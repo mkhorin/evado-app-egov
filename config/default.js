@@ -21,19 +21,11 @@ module.exports = {
         },
         'router': {
             // defaultModule: 'front'
-        },
-        'fileStorage': {
         }
     },
     metaModels: {
         'base': {
-            Class: require('evado-meta-base/base/BaseMeta'),
-            DataHistoryModel: {
-                Class: require('evado-module-office/model/DataHistory')
-            },
-            UserModel: {
-                Class: require('evado-module-office/model/User')
-            }
+            Class: require('evado-meta-base/base/BaseMeta')
         },
         'navigation': {
             Class: require('evado-meta-navigation/base/NavMeta')
@@ -76,9 +68,5 @@ module.exports = {
         'enablePasswordReset': false,
         'enableSignUp': true,
         'enableSignUpVerification': false
-    },
-    widgets: {
-        'commonMenu': {
-        }
     }
 };
