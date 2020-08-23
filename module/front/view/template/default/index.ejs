@@ -18,6 +18,8 @@ const fileUrl = _url('/api/base/file/');
 const metaUrl = _url('/api/base/meta/');
 %>
 
+<%- include(_view.get('_part/signboard')) %>
+
 <div class="front"
      data-guest="<%- _controller.user.isGuest() %>"
      data-list="<%- dataUrl + 'list' %>"

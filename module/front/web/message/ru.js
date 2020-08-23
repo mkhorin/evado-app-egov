@@ -17,6 +17,7 @@ Object.assign(Jam.I18n.defaults, {
     'Fill a form': 'Заполнить форму',
     'Form': 'Форма',
 
+    'Main': 'Главная',
     'Message': 'Сообщение',
     'My service requests': 'Мои запросы услуг',
 
