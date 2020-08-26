@@ -126,7 +126,8 @@ module.exports = {
             description: 'Access to Studio module'
         },
         'moduleApiBaseUpload': {
-            label: 'Upload files'
+            label: 'Upload files',
+            description: 'Uploading files via basic metadata API module'
         }
     },
 
