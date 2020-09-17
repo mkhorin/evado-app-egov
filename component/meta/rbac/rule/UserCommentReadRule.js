@@ -16,7 +16,7 @@ module.exports = class UserCommentReadRule extends Base {
         const model = this.getTarget();
         const requestClass = model.class.meta.getClass('request');
         const query = requestClass.findById(model.get('request'));
-        const requestId = await query.and({[requestClass.CREATOR_ATTR]: this.getUserId()}).id();
+        const requestId = await query.byCreator(this.getUserId()).id();
         return !!requestId;
     }
 

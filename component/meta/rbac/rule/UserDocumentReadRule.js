@@ -17,7 +17,7 @@ module.exports = class UserDocumentReadRule extends Base {
         const requestClass = model.class.meta.getClass('request');
         const requests = await requestClass.findByCreator(this.getUserId()).ids();
         const commentClass = requestClass.meta.getClass('comment');
-        const query = commentClass.find().and({
+        const query = commentClass.find({
             request: requests,
             documents: model.getId()
         });
@@ -29,7 +29,7 @@ module.exports = class UserDocumentReadRule extends Base {
         const requestClass = meta.getClass('request');
         const requests = await requestClass.findByCreator(this.getUserId()).ids();
         const commentClass = meta.getClass('comment');
-        const documents = await commentClass.find().and({request: requests}).column('documents');
+        const documents = await commentClass.find({request: requests}).column('documents');
         return {_id: [].concat(...documents)};
     }
 };

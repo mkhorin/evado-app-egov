@@ -41,10 +41,7 @@ module.exports = class DraftBehavior extends Base {
             return true;
         }
         const metaClass = this.owner.class;
-        const found = await metaClass.find().and({
-            [metaClass.STATE_ATTR]: 'draft',
-            [metaClass.CREATOR_ATTR]: this.owner.getCreator()
-        }).id();
+        const found = await metaClass.findByState('draft').byCreator(this.owner.getCreator()).id();
         if (found) {
             this.owner.addError(metaClass.CLASS_ATTR, `Draft already exists: ${found}`);
         }
