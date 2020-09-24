@@ -1,15 +1,11 @@
-# Evado E-government App
+# Evado E-government
 
-Application for receiving and processing user requests for services.
+Build on [Evado Declarative Framework](https://github.com/mkhorin/evado)
+this application provides services through electronic request forms. 
 
 - Unique electronic form for each service.
 - Limit permissions for clients, managers, and administrators.
 - Support for third-party web interfaces through AJAX API.    
-  
-Provision of services through electronic request forms.
-
-- [Evado Declarative Framework](https://github.com/mkhorin/evado)
-- [Step-by-step tutorial](http://nervebit.com)
 
 ## Docker installation
 
@@ -57,4 +53,4 @@ Password: 123456
 ```
 
 ## Tutorial
-- [Build App Without Coding](http://nervebit.com)
+- [Build an App Without Coding](http://nervebit.com)
