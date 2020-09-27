@@ -1,7 +1,7 @@
 # Evado E-government
 
-Build on [Evado Declarative Framework](https://github.com/mkhorin/evado)
-this application provides services through electronic request forms. 
+An application build on [Evado Declarative Framework](https://github.com/mkhorin/evado) 
+provides services through electronic request forms. 
 
 - Unique electronic form for each service.
 - Limit permissions for clients, managers, and administrators.
