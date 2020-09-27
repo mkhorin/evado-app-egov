@@ -171,7 +171,7 @@ module.exports = {
             description: 'Check user is object creator',
             config: {
                 Class: 'evado/component/meta/rbac/rule/UserRule',
-                attr: '_creator'
+                userAttr: '_creator'
             }
         },
         'commentCreation': {
