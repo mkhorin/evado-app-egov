@@ -20,8 +20,8 @@ docker-compose up -d server
 ## Typical installation
 
 #### Install environment
-- [Node.js](https://nodejs.org)
-- [MongoDB](https://www.mongodb.com/download-center/community)
+- [Node.js](https://nodejs.org) (version 12)
+- [MongoDB](https://www.mongodb.com/download-center/community) (version 4)
 
 #### Linux
 Clone application to /app
