@@ -48,36 +48,37 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span>
+                    <h5 class="modal-title" data-t="">New comment</h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
                     </button>
-                    <h4 class="modal-title" data-t="">New comment</h4>
                 </div>
                 <div class="modal-body">
                     <div class="modal-error alert-danger alert hidden"></div>
                     <div class="form" data-handler="Form">
                         <div class="form-attr form-group required">
-                            <label class="control-label" data-t="">Message</label>
-                            <div class="form-control-static">
+                            <label class="col-form-label" data-t="">Message</label>
+                            <div class="form-control-plaintext">
                                 <textarea class="form-control" name="message" rows="4"></textarea>
                                 <div class="error-block"></div>
                             </div>
                         </div>
                         <div class="form-attr form-group">
-                            <div class="form-control-static">
+                            <div class="form-control-plaintext">
                                 <div class="doc-uploader" data-handler="DocUploader">
                                     <input type="hidden" name="documents"/>
                                     <div class="doc-uploader-commands">
-                                        <button class="btn-default btn" type="button" data-command="addDoc">
+                                        <button class="btn-outline-success btn" type="button" data-command="addDoc">
                                             <span data-t="">Add document</span>
                                         </button>
                                     </div>
                                     <template data-id="docUploaderItem">
                                         <div class="doc-uploader-item form-group">
-                                            <input type="file" class="form-control">
+                                            <input type="file" class="form-control-file">
                                             <div class="hint-block"></div>
                                             <div class="error-block"></div>
                                             <button class="btn-danger btn-sm btn" type="button" data-command="removeDoc">
-                                                <span class="glyphicon glyphicon-remove"></span>
+                                                <i class="fas fa-times"></i>
                                             </button>
                                         </div>
                                     </template>
@@ -91,7 +92,7 @@
                     <button class="btn-primary btn" data-command="send">
                         <span data-t="">Send</span>
                     </button>
-                    <button class="btn-default btn" data-dismiss="modal">
+                    <button class="btn-outline-secondary btn" data-dismiss="modal">
                         <span data-t="">Cancel</span>
                     </button>
                 </div>

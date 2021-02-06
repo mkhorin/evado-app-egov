@@ -1,6 +1,6 @@
 'use strict';
 
-Front.Request = class Request extends Front.LoadableContent {
+Front.Request = class Request extends Front.Loadable {
 
     init () {
         super.init();
@@ -80,7 +80,7 @@ Front.Request = class Request extends Front.LoadableContent {
                 return Jam.FormatHelper.asDate(value);
         }
         value = this.front.meta.formatAsEnum(value, data, 'meta.class.request');
-        return Jam.Helper.escapeTags(value);
+        return Jam.escape(value);
     }
 
     renderError () {

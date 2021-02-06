@@ -1,9 +1,9 @@
 'use strict';
 
-Front.Account = class Account extends Front.LoadableContent {
+Front.Account = class Account extends Front.Loadable {
 };
 
-Front.RequestList = class RequestList extends Front.LoadableContent {
+Front.RequestList = class RequestList extends Front.Loadable {
 
     init () {
         super.init();
@@ -31,7 +31,7 @@ Front.RequestList = class RequestList extends Front.LoadableContent {
     }
 
     render (data) {
-        let items = data && data.items;
+        let items = data?.items;
         items = Array.isArray(items) ? items : [];
         items = items.map(this.renderItem, this).join('');
         const template = items ? 'list' : 'empty';
@@ -59,9 +59,9 @@ Front.RequestList = class RequestList extends Front.LoadableContent {
 
     onDone (data) {
         super.onDone(data);
-        this.pagination.setTotal(data && data.totalSize);
+        this.pagination.setTotal(data?.totalSize);
         this.$content.append(this.pagination.render());
-        this.translateContainer();
+        Jam.t(this.$container);
     }
 
     onDetail (event) {

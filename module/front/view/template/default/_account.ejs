@@ -3,8 +3,8 @@
 
     <div class="page-head">
         <ol class="breadcrumb">
-            <li><a href="#" data-action="main" data-t="">Main</a></li>
-            <li data-t="">Account</li>
+            <li class="breadcrumb-item"><a href="#" data-action="main" data-t="">Main</a></li>
+            <li class="breadcrumb-item" data-t="">Account</li>
         </ol>
         <%- include('./_user') %>
     </div>
@@ -39,7 +39,8 @@
                     </div>
                 </div>
                 <div class="request-item-icon cell">
-                    <img data-src="/api/base/file/download?c=icon&id={{icon}}" class="thumbnail-clear thumbnail" alt="">
+                    <img data-src="/api/base/file/download?c=icon&id={{icon}}"
+                         class="thumbnail-transparent img-thumbnail" alt="">
                 </div>
             </div>
         </template>

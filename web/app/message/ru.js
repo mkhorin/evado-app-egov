@@ -1,31 +1,29 @@
 'use strict';
-
-// evado/web/jam/utility/I18n.js
-
-// extend default translation category
-// use: <span data-t="">Some text</span>
-// use: <div title="Some text"></div>
-// use: <input placeholder="Some text" type="text" />
-
+/**
+ * Extend default translations
+ *
+ * Use: Jam.t('Some text')
+ * Use: <span data-t="">Some text</span>
+ * Use: <div title="Some text" data-t=""></div>
+ * Use: <input placeholder="Some text" type="text" data-t="">
+ */
 Object.assign(Jam.I18n.defaults, {
 
     'Test utility': 'Тестовая утилита'
 });
 
-// define custom translation category
-// use: <span data-t="custom">Any text</span>
-// use: <div data-t="custom" title="Any text"></div>
-// use: <input data-t="custom" placeholder="Any text" type="text"/>
-// use: <div data-t-title="customTitle" title="Any title" data-t="custom">Any text</div>
-
+/**
+ * Define custom translation category
+ *
+ * Use: Jam.t('Some text', 'custom')
+ * Use: <span data-t="custom">Some text</span>
+ * Use: <div title="Some text" data-t="custom"></div>
+ * Use: <input placeholder="Some text" type="text" data-t="custom">
+ * Use: <div title="Some text" data-t-title="custom" data-t="">Text</div>
+ */
 Jam.I18n.custom = {
 
-    'Any text': 'Любой текст'
-};
-
-Jam.I18n.customTitle = {
-
-    'Any title': 'Любой заголовок'
+    'Some text': 'Некоторый текст'
 };
 
 // METADATA

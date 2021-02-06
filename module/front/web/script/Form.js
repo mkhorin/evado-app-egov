@@ -5,17 +5,17 @@ Front.Form = class Form extends Front.Element {
     init () {
         this.$topError = this.find('.form-error');
         this.on('form:clear', this.onClear.bind(this));
-        this.on('click', '.nav-tab a', this.onClickTab.bind(this));
-        this.on('click', '.form-set-toggle', this.onClickGroup.bind(this));
+        this.on('click', '.nav-link', this.onTab.bind(this));
+        this.on('click', '.form-set-toggle', this.onGroup.bind(this));
     }
 
     onClear () {
         this.find('[name]').val('');
     }
 
-    onClickTab (event) {
+    onTab (event) {
         event.preventDefault();
-        const $nav = $(event.currentTarget).parent();
+        const $nav = $(event.currentTarget);
         const $content = $nav.closest('.tabs').children('.tab-content');
         $nav.parent().children('.active').removeClass('active');
         $content.children('.active').removeClass('active');
@@ -23,7 +23,7 @@ Front.Form = class Form extends Front.Element {
         $content.children(`[data-id="${$nav.data('id')}"]`).addClass('active');
     }
 
-    onClickGroup (event) {
+    onGroup (event) {
         const $group = $(event.currentTarget).closest('.form-set').toggleClass('active');
     }
 
@@ -57,7 +57,7 @@ Front.Form = class Form extends Front.Element {
 
     addErrors (data) {
         if (!data) {
-            return falae;
+            return false;
         }
         const topErrors = [];
         for (const name of Object.keys(data)) {

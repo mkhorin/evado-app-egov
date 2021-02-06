@@ -40,10 +40,10 @@ module.exports = class DraftBehavior extends Base {
         if (!this.owner.isNew()) {
             return true;
         }
-        const metaClass = this.owner.class;
-        const found = await metaClass.findByState('draft').byCreator(this.owner.getCreator()).id();
+        const cls = this.owner.class;
+        const found = await cls.findByState('draft').byCreator(this.owner.getCreator()).id();
         if (found) {
-            this.owner.addError(metaClass.CLASS_ATTR, `Draft already exists: ${found}`);
+            this.owner.addError(cls.CLASS_ATTR, `Draft already exists: ${found}`);
         }
     }
 
@@ -74,7 +74,7 @@ module.exports = class DraftBehavior extends Base {
     }
 
     createTransitComment (transition) {
-        const commentClass = this.getMetaClass('comment');
+        const commentClass = this.getMetadataClass('comment');
         const comment = this.owner.createByView(commentClass);
         comment.assign({
             type: 'event',

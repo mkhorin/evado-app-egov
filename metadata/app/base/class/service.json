@@ -104,7 +104,10 @@
       "required": false,
       "selectSearchable": false,
       "trim": true,
-      "unique": false
+      "unique": false,
+      "options": {
+        "ancestorClass": "request"
+      }
     },
     {
       "name": "icon",

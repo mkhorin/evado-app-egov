@@ -3,8 +3,8 @@
 
     <div class="page-head">
         <ol class="breadcrumb">
-            <li><a href="#" data-action="main" data-t="">Main</a></li>
-            <li data-t="">Search</li>
+            <li class="breadcrumb-item"><a href="#" data-action="main" data-t="">Main</a></li>
+            <li class="breadcrumb-item" data-t="">Search</li>
         </ol>
         <%- include('./_user') %>
     </div>
@@ -16,7 +16,7 @@
             <input type="search" class="form-control" placeholder="Search for...">
             <span class="input-group-btn">
                 <button class="btn btn-primary" type="submit">
-                    <span class="glyphicon glyphicon-search"></span>
+                    <i class="fas fa-search"></i>
                 </button>
             </span>
         </div>
@@ -36,7 +36,7 @@
             <div class="service-row" data-id="{{_id}}">
                 <a href="#" data-action="service" title="{{name}}">
                     <img data-src="<%- _url('/api/base/file/download') %>?c=icon&id={{icon}}"
-                         class="thumbnail img-responsive" alt="{{name}}">
+                         class="img-thumbnail img-fluid" alt="{{name}}">
                 </a>
                 <h4><a href="#" data-action="service" title="{{name}}">{{name}}</a></h4>
             </div>

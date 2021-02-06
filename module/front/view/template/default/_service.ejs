@@ -6,15 +6,15 @@
         <template data-id="service">
             <div class="page-head">
                 <ol class="breadcrumb">
-                    <li><a href="#" data-action="main" data-t="">Main</a></li>
-                    <li data-t="meta.class.service">{{name}}</li>
+                    <li class="breadcrumb-item"><a href="#" data-action="main" data-t="">Main</a></li>
+                    <li class="breadcrumb-item" data-t="meta.class.service">{{name}}</li>
                 </ol>
                 <%- include('./_user') %>
             </div>
 
             <div class="icon-title clearfix">
                 <img data-src="<%- _url('/api/base/file/download') %>?c=icon&id={{icon}}"
-                     class="pull-left thumbnail-sm thumbnail-clear thumbnail img-responsive" alt="{{name}}">
+                     class="float-left thumbnail-transparent thumbnail-sm img-thumbnail img-fluid" alt="{{name}}">
                 <h1 data-t="meta.class.service">{{name}}</h1>
                 <h3 data-t="meta.class.service" class="subtitle">{{brief}}</h3>
             </div>

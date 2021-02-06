@@ -3,10 +3,10 @@
 
     <div class="page-head">
         <ol class="breadcrumb">
-            <li><a href="#" data-action="main" data-t="">Main</a></li>
-            <li><a href="#" data-action="account" data-t="">Account</a></li>
-            <li><a href="#" data-action="request" data-t="">Request</a></li>
-            <li data-t="">Comment</li>
+            <li class="breadcrumb-item"><a href="#" data-action="main" data-t="">Main</a></li>
+            <li class="breadcrumb-item"><a href="#" data-action="account" data-t="">Account</a></li>
+            <li class="breadcrumb-item"><a href="#" data-action="request" data-t="">Request</a></li>
+            <li class="breadcrumb-item" data-t="">Comment</li>
         </ol>
         <%- include('./_user') %>
     </div>
@@ -16,37 +16,37 @@
         <template data-id="item">
             <h1 data-t="">Request comment</h1>
 
-            <div class="form-horizontal form">
-                <div class="form-attr form-group">
-                    <label class="col-md-2 control-label" data-t="">Type</label>
-                    <div class="col-md-10">
-                        <div class="form-control-static">{{type}}</div>
+            <div class="form">
+                <div class="form-attr form-group row">
+                    <label class="col-md-3 col-form-label" data-t="">Type</label>
+                    <div class="col-md-9">
+                        <div class="form-control-plaintext">{{type}}</div>
                     </div>
                 </div>
-                <div class="form-attr form-group">
-                    <label class="col-md-2 control-label" data-t="">Created at</label>
-                    <div class="col-md-10">
-                        <div class="form-control-static">{{date}}</div>
+                <div class="form-attr form-group row">
+                    <label class="col-md-3 col-form-label" data-t="">Created at</label>
+                    <div class="col-md-9">
+                        <div class="form-control-plaintext">{{date}}</div>
                     </div>
                 </div>
-                <div class="form-attr form-group">
-                    <label class="col-md-2 control-label" data-t="">Sender</label>
-                    <div class="col-md-10">
-                        <div class="form-control-static">{{sender}}</div>
+                <div class="form-attr form-group row">
+                    <label class="col-md-3 col-form-label" data-t="">Sender</label>
+                    <div class="col-md-9">
+                        <div class="form-control-plaintext">{{sender}}</div>
                     </div>
                 </div>
-                <div class="form-attr form-group">
-                    <label class="col-md-2 control-label" data-t="">Message</label>
-                    <div class="col-md-10">
-                        <div class="form-control-static">{{message}}</div>
+                <div class="form-attr form-group row">
+                    <label class="col-md-3 col-form-label" data-t="">Message</label>
+                    <div class="col-md-9">
+                        <div class="form-control-plaintext">{{message}}</div>
                     </div>
                 </div>
 
                 {{docs}}
 
-                <div class="form-group mt30">
-                    <div class="col-md-10 col-md-offset-2">
-                        <button class="btn-primary btn" type="button" data-command="backRequest">
+                <div class="form-group row mt-3">
+                    <div class="col-md-9 offset-md-3">
+                        <button class="btn-outline-secondary btn" type="button" data-command="backRequest">
                             <span data-t="">Back to request</span>
                         </button>
                     </div>
@@ -55,10 +55,10 @@
         </template>
 
         <template data-id="docs">
-            <div class="form-attr form-group">
-                <label class="col-md-2 control-label" data-t="">Documents</label>
-                <div class="col-md-10">
-                    <div class="form-control-static">
+            <div class="form-attr form-group row">
+                <label class="col-md-3 col-form-label" data-t="">Documents</label>
+                <div class="col-md-9">
+                    <div class="form-control-plaintext">
                         <div class="doc-items">{{docs}}</div>
                     </div>
                 </div>
@@ -79,7 +79,7 @@
         </template>
 
         <template data-id="static">
-            <p class="form-control-static">{{value}}</p>
+            <p class="form-control-plaintext">{{value}}</p>
         </template>
 
         <template data-id="empty">

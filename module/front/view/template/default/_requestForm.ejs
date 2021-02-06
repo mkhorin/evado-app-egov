@@ -6,9 +6,9 @@
         <template data-id="form">
             <div class="page-head">
                 <ol class="breadcrumb">
-                    <li><a href="#" data-action="main" data-t="">Main</a></li>
-                    <li><a href="#" data-action="service" data-id="{{service}}" data-t="">Service</a></li>
-                    <li data-t="">Create request</li>
+                    <li class="breadcrumb-item"><a href="#" data-action="main" data-t="">Main</a></li>
+                    <li class="breadcrumb-item"><a href="#" data-action="service" data-id="{{service}}" data-t="">Service</a></li>
+                    <li class="breadcrumb-item" data-t="">Create request</li>
                 </ol>
                 <%- include('./_user') %>
             </div>
@@ -17,7 +17,7 @@
 
             <h4 data-t="">Please fill out and submit this service request form</h4>
 
-            <div class="form-horizontal form" data-handler="Form">
+            <div class="form" data-handler="Form">
                 <div class="form-error alert-danger alert"></div>
                 {{form}}
             </div>
@@ -36,7 +36,7 @@
             <fieldset class="form-base-group form-set {{active}}">
                 <legend>
                     <div class="form-set-toggle">
-                        <span class="icon fas"></span>
+                        <span class="icon fas fa-chevron-right"></span>
                         <span data-t="{{t}}" title="{{hint}}">{{label}}</span>
                     </div>
                 </legend>
@@ -45,8 +45,8 @@
         </template>
 
         <template data-id="attr">
-            <div class="form-attr form-group {{required}}">
-                <label class="col-md-3 control-label" data-t="meta.class.request"
+            <div class="form-attr form-group row {{required}}">
+                <label class="col-md-3 col-form-label" data-t="meta.class.request"
                        title="{{extHint}}">{{label}}</label>
                 <div class="col-md-9">
                     {{content}}
@@ -57,15 +57,13 @@
         </template>
 
         <template data-id="boolean">
-            <div class="form-attr form-group">
-                <div class="col-md-9 col-md-offset-3">
+            <div class="form-attr form-group row">
+                <div class="col-md-9 offset-md-3">
                     <div data-handler="FormBoolean">
                         <input name="{{name}}" type="hidden" value="{{value}}" class="form-value">
-                        <div class="checkbox">
-                            <label title="{{extHint}}" data-t-title="meta.class.request">
-                                <input type="checkbox">
-                                <span data-t="meta.class.request">{{label}}</span>
-                            </label>
+                        <div class="form-check" title="{{extHint}}" data-t-title="meta.class.request">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label" data-t="meta.class.request">{{label}}</label>
                         </div>
                     </div>
                     <div class="error-block"></div>
@@ -76,7 +74,7 @@
 
         <template data-id="static">
             <input name="{{name}}" type="hidden" value="{{value}}" class="form-value">
-            <p class="form-control-static">{{displayValue}}</p>
+            <p class="form-control-plaintext">{{displayValue}}</p>
         </template>
 
         <template data-id="string">
@@ -88,7 +86,7 @@
                 <input name="{{name}}" type="hidden" value="{{value}}" class="form-value">
                 <div class="input-group">
                     <input type="text" class="datepicker form-control" {{required}}>
-                    <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                    <div class="input-group-append"><i class="fa fa-calendar"></i></div>
                 </div>
             </div>
         </template>

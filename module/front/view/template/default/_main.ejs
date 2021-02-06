@@ -3,7 +3,7 @@
 
     <div class="page-head">
         <ol class="breadcrumb">
-            <li data-t="">Main</li>
+            <li class="breadcrumb-item" data-t="">Main</li>
         </ol>
         <%- include('./_user') %>
     </div>
@@ -15,7 +15,7 @@
             <input type="search" class="form-control" placeholder="Search for...">
             <span class="input-group-btn">
                 <button class="btn btn-primary" type="submit">
-                    <span class="glyphicon glyphicon-search"></span>
+                    <i class="fas fa-search"></i>
                 </button>
             </span>
         </div>
@@ -28,11 +28,11 @@
         </template>
 
         <template data-id="item">
-            <div class="col-sm-6 col-lg-3">
+            <div class="col-md-6 col-lg-3">
                 <div class="service-card" data-id="{{_id}}">
                     <a href="#" data-action="service">
                         <img data-src="<%- _url('/api/base/file/download') %>?c=icon&id={{icon}}"
-                             class="thumbnail img-responsive" alt="{{name}}">
+                             class="img-thumbnail img-fluid" alt="{{name}}">
                     </a>
                     <h3><a href="#" data-action="service" data-t="meta.class.service">{{name}}</a></h3>
                 </div>

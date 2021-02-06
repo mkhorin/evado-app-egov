@@ -7,15 +7,15 @@ Jam.RequestModelTransition = class RequestModelTransition extends Jam.ModelTrans
 
     forceExecute () {
         return super.forceExecute().done(() => {
-            this.model.modal.one('afterLoad', this.onAfterLoad.bind(this));
+            this.model.frame.one('afterLoad', this.onAfterLoad.bind(this));
         });
     }
 
     onAfterLoad () {
-        const model = this.model.findInstanceByModal();
+        const model = this.model.findInstanceByFrame();
         const id = model.getAttr('lastComment').getValue();
         if (id) {
-            model.childModal.load('office/model/update?c=comment', {id});
+            model.childFrame.load('office/model/update?c=comment', {id});
         }
     }
 };

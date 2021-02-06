@@ -3,17 +3,19 @@ const s = typeof start === 'undefined' ? '{{' : start;
 const e = typeof end === 'undefined' ? '}}' : end;
 %>
 <template data-id="pagination">
-    <nav class="text-center">
+    <nav>
         <ul class="pagination">
-            <li><a href="#" data-action="first"><span>«</span></a></li>
-            <li><a href="#" data-action="prev"><span>‹</span></a></li>
+            <li class="page-item"><a class="page-link" href="#" data-action="first"><span>«</span></a></li>
+            <li class="page-item"><a class="page-link" href="#" data-action="prev"><span>‹</span></a></li>
             <%- s %>pages<%- e %>
-            <li><a href="#" data-action="next"><span>›</span></a></li>
-            <li><a href="#" data-action="last"><span>»</span></a></li>
+            <li class="page-item"><a class="page-link" href="#" data-action="next"><span>›</span></a></li>
+            <li class="page-item"><a class="page-link" href="#" data-action="last"><span>»</span></a></li>
         </ul>
     </nav>
 </template>
 
 <template data-id="page">
-    <li class="<%- s %>active<%- e %>"><a href="#" data-page="<%- s %>page<%- e %>"><%- s %>text<%- e %></a></li>
+    <li class="page-item <%- s %>active<%- e %>">
+        <a class="page-link" href="#" data-page="<%- s %>page<%- e %>"><%- s %>text<%- e %></a>
+    </li>
 </template>

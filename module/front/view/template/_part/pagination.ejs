@@ -1,41 +1,28 @@
+<%
+const count = pager.getPageCount();
+const links = pager.getLinks();
 
-<% const count = pager.getPageCount(); %>
-<% const links = pager.getLinks(); %>
-
-<% if (count > 1) { %>
-<nav class="text-center">
+if (count > 1) {
+%>
+<nav>
     <ul class="pagination">
-
         <% if (links[pager.LINK_FIRST]) { %>
-        <li><a href="<%- links[pager.LINK_FIRST] %>"><span>&laquo;</span></a></li>
-        <% } else { %>
-        <li class="disabled"><span><span>&laquo;</span></span></li>
+        <li class="page-item"><a class="page-link" href="<%- links[pager.LINK_FIRST] %>"><span>&laquo;</span></a></li>
         <% } %>
-
         <% if (links[pager.LINK_PREV]) { %>
-            <li><a href="<%- links[pager.LINK_PREV] %>"><span>&lsaquo;</span></a></li>
-        <% } else { %>
-            <li class="disabled"><span><span>&lsaquo;</span></span></li>
+        <li class="page-item"><a class="page-link" href="<%- links[pager.LINK_PREV] %>"><span>&lsaquo;</span></a></li>
         <% } %>
-
         <% for (let i = 0; i < count; ++i) { %>
-            <% if (i === pager.page) { %>
-            <li class="active"><span><%- i + 1 %></span></li>
-            <% } else { %>
-            <li><a href="<%- pager.createUrl(i) %>"><%- i + 1 %></a></li>
-            <% } %>
-        <% } %>
-
+        <% if (i === pager.page) { %>
+        <li class="page-item active"><a class="page-link" href="#"><%- i + 1 %> <span class="sr-only">(current)</span></a></li>
+        <% } else { %>
+        <li class="page-item"><a class="page-link" href="<%- pager.createUrl(i) %>"><%- i + 1 %></a></li>
+        <% }} %>
         <% if (links[pager.LINK_NEXT]) { %>
-        <li><a href="<%- links[pager.LINK_NEXT] %>"><span>&rsaquo;</span></a></li>
-        <% } else { %>
-        <li class="disabled"><span><span>&rsaquo;</span></span></li>
+        <li class="page-item"><a class="page-link" href="<%- links[pager.LINK_NEXT] %>"><span>&rsaquo;</span></a></li>
         <% } %>
-
         <% if (links[pager.LINK_LAST]) { %>
-        <li><a href="<%- links[pager.LINK_LAST] %>"><span>&raquo;</span></a></li>
-        <% } else { %>
-        <li class="disabled"><span><span>&raquo;</span></span></li>
+        <li class="page-item"><a class="page-link" href="<%- links[pager.LINK_LAST] %>"><span>&raquo;</span></a></li>
         <% } %>
     </ul>
 </nav>

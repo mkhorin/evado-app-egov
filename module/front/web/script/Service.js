@@ -1,6 +1,6 @@
 'use strict';
 
-Front.Service = class Service extends Front.LoadableContent {
+Front.Service = class Service extends Front.Loadable {
 
     getUrl () {
         return super.getUrl('read');
@@ -31,7 +31,7 @@ Front.Service = class Service extends Front.LoadableContent {
     }
 };
 
-Front.ServiceList = class ServiceList extends Front.LoadableContent {
+Front.ServiceList = class ServiceList extends Front.Loadable {
 
     init () {
         super.init();
@@ -66,12 +66,12 @@ Front.ServiceList = class ServiceList extends Front.LoadableContent {
     }
 
     render (data) {
-        let items = data && data.items;
+        let items = data?.items;
         items = Array.isArray(items) ? items : [];
         items = items.map(this.renderItem, this).join('');
         return items
             ? this.resolveTemplate('list', {items})
-            : this.resolveTemplate('error', {text: Jam.i18n.translate('No services found')});
+            : this.resolveTemplate('error', {text: Jam.t('No services found')});
     }
 
     renderItem (data) {

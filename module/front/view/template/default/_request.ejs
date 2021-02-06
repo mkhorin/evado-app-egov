@@ -3,9 +3,9 @@
 
     <div class="page-head">
         <ol class="breadcrumb">
-            <li><a href="#" data-action="main" data-t="">Main</a></li>
-            <li><a href="#" data-action="account" data-t="">Account</a></li>
-            <li data-t="">Request</li>
+            <li class="breadcrumb-item"><a href="#" data-action="main" data-t="">Main</a></li>
+            <li class="breadcrumb-item"><a href="#" data-action="account" data-t="">Account</a></li>
+            <li class="breadcrumb-item" data-t="">Request</li>
         </ol>
         <%- include('./_user') %>
     </div>
@@ -16,24 +16,19 @@
 
             <div class="icon-title clearfix">
                 <img data-src="<%- _url('/api/base/file/download') %>?c=icon&id={{icon}}"
-                     class="pull-left thumbnail-sm thumbnail-clear thumbnail img-responsive" alt="{{name}}">
+                     class="float-left thumbnail-transparent thumbnail-sm img-thumbnail img-fluid" alt="{{name}}">
                 <h1 data-t="meta.class.request">{{title}}</h1>
                 <h3 class="subtitle">
                     <span data-t="">Current request state</span>:
                     &nbsp;<b class="{{stateCss}}" data-t="meta.class.request">{{state}}</b>
                 </h3>
             </div>
-            <div class="form-horizontal form" data-handler="Form">
-
-                <div class="tabs form-tabs" data-id="tabs">
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li class="nav-tab active" data-id="comments">
-                            <a href="#" data-t="">Comments</a>
-                        </li>
-                        <li class="nav-tab" data-id="form">
-                            <a href="#" data-t="">Form</a>
-                        </li>
-                    </ul>
+            <div class="form" data-handler="Form">
+                <div class="form-tabs tabs" data-id="tabs">
+                    <div class="nav nav-tabs" role="tablist">
+                        <a class="nav-item nav-link active" href="#" role="tab" data-id="comments" data-t="">Comments</a>
+                        <a class="nav-item nav-link" href="#" role="tab" data-id="form" data-t="">Form</a>
+                    </div>
                     <div class="tab-content">
                         <div class="form-base-group tab-pane active" data-id="comments">
                             <%- include('./_comments') %>
@@ -50,7 +45,7 @@
             <fieldset class="form-base-group form-set {{active}}">
                 <legend>
                     <div class="form-set-toggle">
-                        <span class="icon fas"></span>
+                        <span class="icon fas fa-chevron-right"></span>
                         <span data-t="meta.class.request" title="{{hint}}">{{label}}</span>
                     </div>
                 </legend>
@@ -59,8 +54,8 @@
         </template>
 
         <template data-id="attr">
-            <div class="form-attr form-group {{required}}">
-                <label class="col-md-3 control-label" data-t="meta.class.request"
+            <div class="form-attr form-group row {{required}}">
+                <label class="col-md-3 col-form-label" data-t="meta.class.request"
                        title="{{extHint}}">{{label}}</label>
                 <div class="col-md-9">
                     {{content}}
@@ -70,7 +65,7 @@
         </template>
 
         <template data-id="static">
-            <p class="form-control-static">{{value}}</p>
+            <p class="form-control-plaintext">{{value}}</p>
         </template>
 
         <template data-id="empty">

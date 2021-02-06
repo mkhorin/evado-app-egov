@@ -1,6 +1,6 @@
 'use strict';
 
-Front.Comment = class Comment extends Front.LoadableContent {
+Front.Comment = class Comment extends Front.Loadable {
 
     init () {
         super.init();
@@ -33,7 +33,7 @@ Front.Comment = class Comment extends Front.LoadableContent {
         data.sender = data._creator_title || data._creator;
         data.request = this.request;
         data.requestName = this.requestName;
-        data.message = Jam.Helper.escapeTags(data.message);
+        data.message = Jam.StringHelper.escapeTags(data.message);
         data.docs = this.renderDocuments(data.documents);
         return this.resolveTemplate('item', data);
     }
@@ -58,7 +58,7 @@ Front.Comment = class Comment extends Front.LoadableContent {
     }
 };
 
-Front.CommentList = class CommentList extends Front.LoadableContent {
+Front.CommentList = class CommentList extends Front.Loadable {
 
     init () {
         super.init();
@@ -101,7 +101,7 @@ Front.CommentList = class CommentList extends Front.LoadableContent {
     }
 
     render (data) {
-        let items = data && data.items;
+        let items = data?.items;
         items = Array.isArray(items) ? items : [];
         items = items.map(this.renderItem, this).join('');
         const template = items ? 'list' : 'empty';
@@ -111,7 +111,7 @@ Front.CommentList = class CommentList extends Front.LoadableContent {
     renderItem (data) {
         data.date = Jam.FormatHelper.asDatetime(data._createdAt);
         data.sender = data._creator_title || data._creator;
-        data.message = Jam.Helper.escapeTags(data.message);
+        data.message = Jam.StringHelper.escapeTags(data.message);
         return this.resolveTemplate('item', data);
     }
 
@@ -122,9 +122,9 @@ Front.CommentList = class CommentList extends Front.LoadableContent {
 
     onDone (data) {
         super.onDone(data);
-        this.pagination.setTotal(data && data.totalSize);
+        this.pagination.setTotal(data?.totalSize);
         this.$content.append(this.pagination.render());
-        this.translateContainer();
+        Jam.t(this.$container);
     }
 
     onDetail (event) {

@@ -11,7 +11,7 @@ module.exports = class UserCommentCreateRule extends Base {
 
     async execute () {
         const data = this.getPostData();
-        const request = data && data.request && data.request.links && data.request.links[0];
+        const request = data?.request?.links?.[0];
         if (!request) {
             return false;
         }

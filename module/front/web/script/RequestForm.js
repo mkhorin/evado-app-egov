@@ -1,6 +1,6 @@
 'use strict';
 
-Front.RequestForm = class RequestForm extends Front.LoadableContent {
+Front.RequestForm = class RequestForm extends Front.Loadable {
 
     init () {
         super.init();
@@ -61,10 +61,10 @@ Front.RequestForm = class RequestForm extends Front.LoadableContent {
     }
 
     onActiveDone (data) {
-        const items = data && data.items && data.items;
-        const item = items && items[0];
+        const items = data?.items;
+        const item = items?.[0];
         this.draft = !items.length || item._state === 'draft';
-        this.id = item ? item._id : null;
+        this.id = item?._id;
     }
 
     loadDraftData () {
@@ -106,8 +106,8 @@ Front.RequestForm = class RequestForm extends Front.LoadableContent {
     renderAttr (data) {
         data.required = data.required ? 'required' : '';
         data.value = this.data[data.name];
-        data.extHint = Jam.Helper.escapeTags(data.extHint);
-        data.hint = Jam.Helper.escapeTags(data.hint);
+        data.extHint = Jam.escape(data.extHint);
+        data.hint = Jam.escape(data.hint);
         switch (data.type) {
             case 'boolean':
                 return this.renderBooleanAttr(data);
@@ -131,10 +131,10 @@ Front.RequestForm = class RequestForm extends Front.LoadableContent {
     }
 
     renderSelectAttr (data) {
-        const items = data.enums && data.enums[0] && data.enums[0].items || [];
+        const items = data.enums?.[0]?.items || [];
         const options = items.map(({value, text}) => {
             const selected = data.value === value ? 'selected' : '';
-            text = Jam.i18n.translate(text, 'meta.class.request');
+            text = Jam.t(text, 'meta.class.request');
             return `<option value="${value}" ${selected}>${text}</option>`;
         });
         data.options = options.join('');

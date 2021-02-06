@@ -1,10 +1,12 @@
 'use strict';
-
-// set NODE_ENV=development
-// node console/data --action export [--dir default] [--files true] [--space 2]
-// node console/data --action import [--dir default] [--files true] [--clear false] [--oneByOne true]
-// node console/data --action clear [--meta document] [--files true]
-
+/**
+ * Data management
+ *
+ * set NODE_ENV=development
+ * node console/data --action export [--dir default] [--files true] [--space 2]
+ * node console/data --action import [--dir default] [--files true] [--clear false] [--oneByOne true]
+ * node console/data --action clear [--meta document] [--files true]
+ */
 const Application = require('../Application');
 const Console = require('evado/console/Console');
 const instance = new Console({Application});
