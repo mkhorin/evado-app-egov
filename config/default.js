@@ -64,6 +64,7 @@ module.exports = {
     security: require('./default-security'),
     tasks: require('./default-tasks'),
     utilities: require('./default-utilities'),
+    sideMenu: require('./default-sideMenu'),
     params: {
         'enablePasswordReset': false,
         'enableSignUp': true,
