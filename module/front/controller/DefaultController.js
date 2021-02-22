@@ -3,7 +3,7 @@
  */
 'use strict';
 
-const Base = require('areto/base/Controller');
+const Base = require('evado/component/base/BaseController');
 
 module.exports = class DefaultController extends Base {
 
