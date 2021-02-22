@@ -1,7 +1,9 @@
 /.hg/*
 /.idea/*
 
-config/*.local.js
+**/asset/dist/
+**/config/*.local.js
+**/web/vendor/
 
 /data/*
 !/data/default/
@@ -11,32 +13,19 @@ config/*.local.js
 
 /log/
 /upload/
-/web/vendor/
 
-# Logs
 *.log
 npm-debug.log*
 
-# Runtime data
 pids
 *.pid
 *.seed
 
-# nyc test coverage
-.nyc_output
-
-# Grunt intermediate storage
-.grunt
-
-# node-waf configuration
-.lock-wscript
-
-# Dependency directories
 node_modules
 jspm_packages
 
-# Optional npm cache directory
-.npm
-
-# Optional REPL history
+.grunt
+.lock-wscript
 .node_repl_history
+.npm
+.nyc_output

@@ -3,16 +3,6 @@ body {
     --super-navbar-color: var(--dark-warning);
     --sidebar-width: 0;
 }
-.front-wrapper {
-    background: none !important;
-}
-.front-wrapper .content-wrapper {
-    margin: 0 0 0 0;
-}
-.front-wrapper .main-footer {
-    margin-left: 0;
-}
-
 .pagination {
     margin-top: 20px;
 }

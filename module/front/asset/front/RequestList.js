@@ -1,8 +1,6 @@
-'use strict';
-
-Front.Account = class Account extends Front.Loadable {
-};
-
+/**
+ * @copyright Copyright (c) 2021 Maxim Khorin <maksimovichu@gmail.com>
+ */
 Front.RequestList = class RequestList extends Front.Loadable {
 
     init () {

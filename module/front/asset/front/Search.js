@@ -1,5 +1,6 @@
-'use strict';
-
+/**
+ * @copyright Copyright (c) 2021 Maxim Khorin <maksimovichu@gmail.com>
+ */
 Front.Search = class Search extends Front.Element {
 
     constructor () {
