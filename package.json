@@ -18,7 +18,7 @@
     "evado-module-admin": "~2.1.0",
     "evado-module-office": "~2.2.0",
     "evado-module-studio": "~2.1.0",
-    "sharp": "~0.27.0"
+    "sharp": "~0.28.0"
   },
   "scripts": {
     "start": "node console/start"
