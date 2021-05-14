@@ -91,12 +91,6 @@ body {
     margin: 0 2rem 1rem 0;
 }
 
-/* BREADCRUMB */
-
-.breadcrumb {
-    background: #eff;
-}
-
 /* USER */
 
 .user-toggle {
@@ -105,12 +99,10 @@ body {
     top: 0;
     cursor: pointer;
     color: #666;
-    line-height: 3rem;
     padding: 0 12px;
-    border-left: 1px solid #ddd;
 }
 .user-toggle:hover {
-    color: var(--primary);
+    color: var(--dark-primary);
 }
 
 /* SEARCH FORM */
@@ -129,7 +121,7 @@ body {
     padding: 15px;
     background: #fff;
     overflow: auto;
-    border-bottom: 2px solid var(--primary);
+    border-bottom: 2px solid var(--dark-primary);
     text-align: center;
     max-width: 320px;
 }
@@ -156,7 +148,7 @@ body {
     min-height: 95px;
     padding: 15px 15px 15px 100px;
     background: #fafafa;
-    border-bottom: 1px solid var(--primary);
+    border-bottom: 1px solid var(--dark-primary);
 }
 .service-row + .service-row {
     margin-top: 20px;

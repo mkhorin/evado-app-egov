@@ -86,7 +86,7 @@
                 <input name="{{name}}" type="hidden" value="{{value}}" class="form-value">
                 <div class="input-group">
                     <input type="text" class="datepicker form-control" {{required}}>
-                    <div class="input-group-append"><i class="fa fa-calendar"></i></div>
+                    <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                 </div>
             </div>
         </template>
@@ -97,7 +97,7 @@
 
         <template data-id="select">
             <div data-handler="FormSelect">
-                <select name="{{name}}" class="form-control form-value" {{required}}>
+                <select name="{{name}}" class="form-select form-value" {{required}}>
                     <option value="" data-t="meta.class.request">---</option>
                     {{options}}
                 </select>
