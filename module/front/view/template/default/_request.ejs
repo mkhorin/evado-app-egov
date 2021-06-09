@@ -30,10 +30,10 @@
                         <a class="nav-item nav-link" href="#" role="tab" data-id="form" data-t="">Form</a>
                     </div>
                     <div class="tab-content">
-                        <div class="form-base-group tab-pane active" data-id="comments">
+                        <div class="tab-pane model-group active" data-id="comments">
                             <%- include('./_comments') %>
                         </div>
-                        <div class="form-base-group tab-pane" data-id="form">
+                        <div class="tab-pane model-group" data-id="form">
                             {{form}}
                         </div>
                     </div>
@@ -42,14 +42,14 @@
         </template>
 
         <template data-id="group">
-            <fieldset class="form-base-group form-set {{active}}">
+            <fieldset class="form-set model-group {{active}}">
                 <legend>
                     <div class="form-set-toggle">
                         <span class="icon fas fa-chevron-right"></span>
                         <span data-t="meta.class.request" title="{{hint}}">{{label}}</span>
                     </div>
                 </legend>
-                <div class="form-set-body form-base-group-body">{{content}}</div>
+                <div class="form-set-body model-group-body">{{content}}</div>
             </fieldset>
         </template>
 

@@ -4,7 +4,7 @@
       "$oid": "5e9a57f5473f3911cca9109c"
     },
     "name": "861120.svg",
-    "mime": "image/svg+xml",
+    "type": "image/svg+xml",
     "size": 3055,
     "file": "2020-04/5e9a57f5473f3911cca9109b",
     "createdAt": {
@@ -22,7 +22,7 @@
       "$oid": "5e9a57fa473f3911cca9109f"
     },
     "name": "1973938.svg",
-    "mime": "image/svg+xml",
+    "type": "image/svg+xml",
     "size": 2963,
     "file": "2020-04/5e9a57fa473f3911cca9109e",
     "createdAt": {
@@ -40,7 +40,7 @@
       "$oid": "5e9a57ff473f3911cca910a2"
     },
     "name": "2766716.svg",
-    "mime": "image/svg+xml",
+    "type": "image/svg+xml",
     "size": 3988,
     "file": "2020-04/5e9a57ff473f3911cca910a1",
     "createdAt": {
@@ -58,7 +58,7 @@
       "$oid": "5e9a5806473f3911cca910a5"
     },
     "name": "2813479.svg",
-    "mime": "image/svg+xml",
+    "type": "image/svg+xml",
     "size": 4528,
     "file": "2020-04/5e9a5806473f3911cca910a4",
     "createdAt": {
