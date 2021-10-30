@@ -28,7 +28,7 @@ module.exports = {
             type: 'class',
             class: 'comment'
         },
-        rule: 'commentRead'
+        rules: 'commentRead'
     }, {
         roles: 'user',
         type: 'allow',
@@ -37,7 +37,7 @@ module.exports = {
             type: 'class',
             class: 'comment'
         },
-        rule: 'commentCreation'
+        rules: 'commentCreation'
     }, {
         roles: 'user',
         type: 'allow',
@@ -46,7 +46,7 @@ module.exports = {
             type: 'class',
             class: 'document'
         },
-        rule: 'documentRead'
+        rules: 'documentRead'
     }, {
         roles: 'user',
         type: 'allow',
@@ -63,18 +63,22 @@ module.exports = {
             type: 'class',
             class: 'request'
         },
-        rule: 'creator'
+        rules: 'creator'
     }, {
         description: 'Users can only update their own draft requests',
         roles: 'user',
         type: 'allow',
         actions: 'update',
-        targets: {
+        targets: [{
             type: 'state',
             class: 'request',
             state: 'draft'
-        },
-        rule: 'creator'
+        }, {
+            type: 'transition',
+            class: 'request',
+            transition: 'submit'
+        }],
+        rules: 'creator'
     }, {
         roles: 'manager',
         type: 'allow',
@@ -91,15 +95,18 @@ module.exports = {
             type: 'class',
             class: ['comment', 'document']
         },
-        rule: 'creator'
+        rules: 'creator'
     }, {
         roles: 'manager',
         type: 'allow',
         actions: 'update',
-        targets: {
+        targets: [{
             type: 'class',
             class: 'request'
-        }
+        }, {
+            type: 'transition',
+            class: 'request'
+        }]
     }, {
         description: 'Deny access to all draft requests',
         roles: 'manager',

@@ -54,6 +54,7 @@ Jam.I18n.meta = {
 
     'Edit comment': 'Редактировать комментарий',
     'Environmental violation': 'Эконарушения',
+    'Event': 'Событие',
 
     'File': 'Файл',
     'First name': 'Имя',
