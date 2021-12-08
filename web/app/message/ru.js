@@ -34,6 +34,8 @@ Jam.I18n.meta = {
     'All requests': 'Все запросы',
     'Approve': 'Одобрить',
     'Approved': 'Одобрено',
+    'Are you sure you want to reject this request?': 'Вы уверены, что хотите отклонить этот запрос?',
+    'Are you sure you want to reopen this request?': 'Вы уверены, что хотите возобновить этот запрос?',
 
     'Brief': 'Краткое описание',
 
@@ -71,6 +73,7 @@ Jam.I18n.meta = {
 
     'Name': 'Название',
 
+    'Pending': 'В ожидании рассмотрения',
     'Pistol': 'Пистолет',
 
     'Reason': 'Причина',

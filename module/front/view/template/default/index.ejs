@@ -1,34 +1,67 @@
 <%
 layout(_view.get('_layout/content'));
 
-script('front/vendor/front.min.js');
-script('front/script/module.js');
+script('front/vendor/vue/vue.js');
+script('front/script/account.js');
+script('front/script/breadcrumbs.js');
+script('front/script/mainSearch.js');
+script('front/script/modalDialog.js');
+script('front/script/modelForm.js');
+script('front/script/modelFormAttr.js');
+script('front/script/modelFormBoolean.js');
+script('front/script/modelFormDate.js');
+script('front/script/modelFormFile.js');
+script('front/script/modelFormFileItem.js');
+script('front/script/modelFormSelect.js');
+script('front/script/modelFormString.js');
+script('front/script/modelFormText.js');
+script('front/script/pagination.js');
+script('front/script/requestComment.js');
+script('front/script/requestComments.js');
+script('front/script/requestForm.js');
+script('front/script/requestView.js');
+script('front/script/service.js');
+script('front/script/services.js');
+script('front/script/tabs.js');
+script('front/script/mixin.js');
+script('front/script/front.js');
 
-const dataUrl = _url('/api/base/data/');
-const fileUrl = _url('/api/base/file/');
-const metaUrl = _url('/api/base/meta/');
+const user = _controller.user;
 %>
+
+<%- include('./_account') %>
+<%- include('./_breadcrumbs') %>
+<%- include('./_mainSearch') %>
+<%- include('./_modalDialog') %>
+<%- include('./_modelForm') %>
+<%- include('./_modelFormBoolean') %>
+<%- include('./_modelFormDate') %>
+<%- include('./_modelFormFile') %>
+<%- include('./_modelFormFileItem') %>
+<%- include('./_modelFormSelect') %>
+<%- include('./_modelFormString') %>
+<%- include('./_modelFormText') %>
+<%- include('./_pagination') %>
+<%- include('./_requestComment') %>
+<%- include('./_requestComments') %>
+<%- include('./_requestForm') %>
+<%- include('./_requestView') %>
+<%- include('./_service') %>
+<%- include('./_services') %>
+<%- include('./_tabs') %>
 
 <%- include(_view.get('_part/signboard')) %>
 
-<div class="front"
-     data-guest="<%- _controller.user.isGuest() %>"
-     data-list="<%- dataUrl + 'list' %>"
-     data-read="<%- dataUrl + 'read' %>"
-     data-defaults="<%- dataUrl + 'defaults' %>"
-     data-create="<%- dataUrl + 'create' %>"
-     data-update="<%- dataUrl + 'update' %>"
-     data-transit="<%- dataUrl + 'transit' %>"
-     data-delete="<%- dataUrl + 'delete' %>"
-     data-upload="<%- fileUrl + 'upload' %>"
-     data-meta-class="<%- metaUrl + 'class' %>">
+<div id="front"
+     data-user-id="<%- user.getId() %>"
+     data-auth-url="<%- _url('/auth/sign-in?returnUrl=/front') %>"
+     data-data-url="<%- _url('/api/base/data') %>"
+     data-meta-url="<%- _url('/api/base/meta') %>"
+     data-file-url="<%- _url('/api/base/file') %>"
+     data-thumbnail-url="<%- _url('/api/base/file/thumbnail') %>?c=icon"
+     data-csrf="<%- _controller.getCsrfToken() %>">
 
-    <%- include('./_main') %>
-    <%- include('./_search') %>
-    <%- include('./_service') %>
-    <%- include('./_requestForm') %>
-    <%- include('./_account') %>
-    <%- include('./_request') %>
-    <%- include('./_comment') %>
-
+    <keep-alive include="services,service">
+        <componen :is="activePage" v-bind="activePageProps"></componen>
+    </keep-alive>
 </div>

@@ -47,7 +47,7 @@ module.exports = class DraftBehavior extends Base {
         }
     }
 
-    async beforeTransit (transit) {
+    async beforeTransit () {
         const state = this.owner.getStateName();
         if (state === 'draft') {
             for (const validator of this.extractRequiredValidators()) {
@@ -56,7 +56,7 @@ module.exports = class DraftBehavior extends Base {
         }
     }
 
-    async afterTransit (transition) {
+    async afterTransit ({transition}) {
         await this.createTransitComment(transition);
     }
 

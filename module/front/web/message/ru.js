@@ -14,6 +14,8 @@ Object.assign(Jam.I18n.defaults, {
 
     'Documents': 'Документы',
 
+    'File is uploading...': 'Файл загружается...',
+    'File uploaded': 'Файл загружен',
     'Fill a form': 'Заполнить форму',
     'Form': 'Форма',
 
@@ -22,6 +24,7 @@ Object.assign(Jam.I18n.defaults, {
     'My service requests': 'Мои запросы услуг',
 
     'New comment': 'Новый комментарий',
+    'No services found': 'Сервисы не найдены',
 
     'Please fill out and submit this service request form': 'Пожалуйста, заполните и отправьте эту форму запроса',
     'Public services': 'Публичные услуги',
@@ -35,6 +38,10 @@ Object.assign(Jam.I18n.defaults, {
     'Sender': 'Отправитель',
     'Service': 'Услуга',
     'Submit': 'Отправить',
+
+    'The file is uploaded. Delete it anyway?': 'Файл уже загружен на сервер. Все равно удалить?',
+    'The uploading is in progress. Delete it anyway?': 'Загрузка в процессе выполнения. Все равно удалить?',
+    'This request has no comments yet': 'Этот запрос пока не имеет комментариев',
 
     'Unfortunately, the service request form is currently unavailable': 'К сожалению, форма запроса в настоящее время недоступна',
 

@@ -1,0 +1,16 @@
+<template id="model-form">
+    <div class="form">
+
+        <div class="form-error alert-danger alert"></div>
+
+        <template v-for="element of elements">
+            <component
+                :is="getElementComponentName(element)"
+                :element="element"
+                translation-category="meta.class.request"
+                ref="element"
+                @change="onChangeElement">
+            </component>
+        </template>
+    </div>
+</template>

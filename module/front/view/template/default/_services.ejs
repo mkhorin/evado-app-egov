@@ -1,0 +1,44 @@
+<template id="services">
+    <div class="page">
+
+        <breadcrumbs>
+            <template #path>
+                <li class="breadcrumb-item" data-t="">Main</li>
+            </template>
+        </breadcrumbs>
+
+        <h1 data-t="">Public services</h1>
+
+        <div class="loadable-container">
+
+            <main-search @search="onSearch"></main-search>
+
+            <div class="service-list">
+                <div class="row">
+                    <div v-for="item of items" :key="item.id" class="col-md-6 col-lg-3">
+                        <div class="service-card">
+                            <a v-if="item.icon" @click.prevent="onService(item.id)" href="#">
+                                <img :src="item.icon" :alt="item.name" class="img-thumbnail img-fluid">
+                            </a>
+                            <h3>
+                                <a @click.prevent="onService(item.id)" href="#">
+                                    {{item.name}}
+                                </a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <pagination></pagination>
+
+            <div v-show="!loading && empty" class="alert-danger alert">
+                <span data-t="">No services found</span>
+            </div>
+
+            <div v-show="loading" class="loader">
+                <i class="fa fa-spinner fa-spin"></i>
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,12 @@
+<template id="main-search">
+    <form @submit.prevent="onSubmit" class="search-form">
+        <div class="input-group">
+            <input v-model.trim="text" @input="onInput" type="search" class="form-control" placeholder="Search for...">
+            <div class="input-group-btn">
+                <button class="btn btn-primary" type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+</template>

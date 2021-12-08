@@ -1,114 +1,55 @@
+<template id="request-form">
+    <div class="page">
+        <div class="request-form loadable-container">
+            <template v-show="!loading">
 
-<div class="page" data-page="requestForm" data-handler="RequestFormPage">
+                <breadcrumbs>
+                    <template #path>
+                        <li class="breadcrumb-item">
+                            <a @click.prevent="toServices" href="#" data-t="">Main</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a @click.prevent="onService(service)" href="#" data-t="">Service</a>
+                        </li>
+                        <li class="breadcrumb-item" data-t="">Create request</li>
+                    </template>
+                </breadcrumbs>
 
-    <div class="request-form loadable-container" data-handler="RequestForm">
+                <h1 data-t="meta.class.request">{{title}}</h1>
 
-        <template data-id="form">
-            <div class="page-head">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#" data-action="main" data-t="">Main</a></li>
-                    <li class="breadcrumb-item"><a href="#" data-action="service" data-id="{{service}}" data-t="">Service</a></li>
-                    <li class="breadcrumb-item" data-t="">Create request</li>
-                </ol>
-                <%- include('./_user') %>
-            </div>
+                <template v-if="draftRequest">
 
-            <h1 data-t="meta.class.request">{{title}}</h1>
+                    <h4 data-t="">Please fill out and submit this service request form</h4>
 
-            <h4 data-t="">Please fill out and submit this service request form</h4>
+                    <model-form
+                        :meta-class="request"
+                        :id="requestId"
+                        ref="form"
+                        root-group="form"
+                        @change="onChangeForm">
+                    </model-form>
 
-            <div class="form" data-handler="Form">
-                <div class="form-error alert-danger alert"></div>
-                {{form}}
-            </div>
-
-            <div class="commands">
-                <button class="btn-primary btn" type="button" data-command="save">
-                    <span data-t="">Save</span>
-                </button>
-                <button class="btn-success btn" type="button" data-command="submit">
-                    <span data-t="">Submit</span>
-                </button>
-            </div>
-        </template>
-
-        <template data-id="group">
-            <fieldset class="form-set model-group {{active}}">
-                <legend>
-                    <span class="form-set-toggle">
-                        <span class="icon fas fa-chevron-right"></span>
-                        <span data-t="{{t}}" title="{{hint}}">{{label}}</span>
-                    </span>
-                </legend>
-                <div class="form-set-body model-group-body">{{content}}</div>
-            </fieldset>
-        </template>
-
-        <template data-id="attr">
-            <div class="form-attr form-group row {{required}}">
-                <label class="col-md-3 col-form-label" data-t="meta.class.request"
-                       title="{{extHint}}">{{label}}</label>
-                <div class="col-md-9">
-                    {{content}}
-                    <div class="error-block"></div>
-                    <div class="hint-block" data-t="meta.class.request">{{hint}}</div>
-                </div>
-            </div>
-        </template>
-
-        <template data-id="boolean">
-            <div class="form-attr form-group row">
-                <div class="col-md-9 offset-md-3">
-                    <div data-handler="FormBoolean">
-                        <input name="{{name}}" type="hidden" value="{{value}}" class="form-value">
-                        <div class="form-check" title="{{extHint}}" data-t-title="meta.class.request">
-                            <input class="form-check-input" type="checkbox">
-                            <label class="form-check-label" data-t="meta.class.request">{{label}}</label>
-                        </div>
+                    <div class="commands">
+                        <button @click="onSave" :disabled="!changed" class="btn-primary btn" type="button">
+                            <span data-t="">Save</span>
+                        </button>
+                        <button @click="onSubmit" class="btn-success btn" type="button">
+                            <span data-t="">Submit</span>
+                        </button>
                     </div>
-                    <div class="error-block"></div>
-                    <div class="hint-block" data-t="meta.class.request">{{hint}}</div>
-                </div>
+                </template>
+
+                <template v-else>
+                    <div class="alert-success alert">
+                        <span data-t="">Your request has already been created</span>
+                    </div>
+                </template>
+
+            </template>
+
+            <div v-show="loading" class="loader">
+                <i class="fa fa-spinner fa-spin"></i>
             </div>
-        </template>
-
-        <template data-id="static">
-            <input name="{{name}}" type="hidden" value="{{value}}" class="form-value">
-            <p class="form-control-plaintext">{{displayValue}}</p>
-        </template>
-
-        <template data-id="string">
-            <input name="{{name}}" type="text" value="{{value}}" class="form-control form-value" {{required}}>
-        </template>
-
-        <template data-id="date">
-            <div data-handler="FormDate">
-                <input name="{{name}}" type="hidden" value="{{value}}" class="form-value">
-                <div class="input-group">
-                    <input type="text" class="datepicker form-control" {{required}}>
-                    <span class="input-group-text"><i class="fa fa-calendar"></i></span>
-                </div>
-            </div>
-        </template>
-
-        <template data-id="text">
-            <textarea name="{{name}}" rows="{{rows}}" class="form-control form-value" {{required}}>{{value}}</textarea>
-        </template>
-
-        <template data-id="select">
-            <div data-handler="FormSelect">
-                <select name="{{name}}" class="form-select form-value" {{required}}>
-                    <option value="" data-t="meta.class.request">---</option>
-                    {{options}}
-                </select>
-            </div>
-        </template>
-
-        <template data-id="error">
-            <div class="alert-danger alert">{{text}}</div>
-        </template>
-
-        <div class="loadable-content"></div>
-        <div class="loader"><i class="fa fa-spinner fa-spin"></i></div>
+        </div>
     </div>
-</div>
+</template>

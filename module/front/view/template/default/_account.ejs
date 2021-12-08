@@ -1,63 +1,52 @@
+<template id="account">
+    <div class="page">
 
-<div class="page" data-page="account" data-handler="AccountPage">
+        <breadcrumbs>
+            <template #path>
+                <li class="breadcrumb-item"><a @click.prevent="toServices" href="#" data-t="">Main</a></li>
+                <li class="breadcrumb-item" data-t="">Account</li>
+            </template>
+        </breadcrumbs>
 
-    <div class="page-head">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#" data-action="main" data-t="">Main</a></li>
-            <li class="breadcrumb-item" data-t="">Account</li>
-        </ol>
-        <%- include('./_user') %>
-    </div>
+        <h1 data-t="">My service requests</h1>
 
-    <h1 data-t="">My service requests</h1>
+        <div class="loadable-container">
 
-    <div class="request-list loadable-container" data-handler="RequestList">
-
-        <template data-id="list">
-            <div class="request-items">{{items}}</div>
-        </template>
-
-        <template data-id="item">
-            <div class="request-item row-item" data-id="{{_id}}"
-                 data-state="{{state}}"
-                 data-service="{{service}}"
-                 data-request="{{class}}">
-                <div class="request-item-id cell">
-                    <label data-t="">Request number</label>
-                    <div class="value">
-                        <a href="#" data-action="detail" title="{{_id}}">#{{_id}}</a>
+            <div v-show="!empty" class="request-items">
+                <div v-for="item of items" :key="item.id" class="request-item row-item">
+                    <div class="request-item-id cell">
+                        <label data-t="">Request number</label>
+                        <div class="value">
+                            <a @click.prevent="onRequest(item)" href="#">#{{item.id}}</a>
+                        </div>
                     </div>
-                </div>
-                <div class="request-item-state cell">
-                    <label data-t="">Current state</label>
-                    <div class="value {{stateCss}}">{{stateTitle}}</div>
-                </div>
-                <div class="request-item-service cell">
-                    <label data-t="">Service</label>
-                    <div class="value">
-                        <a href="#" data-action="service" data-id="{{service}}">{{serviceTitle}}</a>
+                    <div class="request-item-state cell">
+                        <label data-t="">Current state</label>
+                        <div class="value" data-t="meta.class.request">{{item.stateTitle}}</div>
                     </div>
-                </div>
-                <div class="request-item-icon cell">
-                    <img data-src="/api/base/file/download?c=icon&id={{icon}}"
-                         class="thumbnail-transparent img-thumbnail" alt="">
+                    <div class="request-item-service cell">
+                        <label data-t="">Service</label>
+                        <div class="value">
+                            <a @click.prevent="onService(item.service?._id)" href="#">
+                                <span data-t="meta.class.request">{{item.service?._title}}</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="request-item-icon cell">
+                        <img v-if="item.icon" :src="item.icon" class="thumbnail-transparent img-thumbnail" alt="">
+                    </div>
                 </div>
             </div>
-        </template>
 
-        <%- include('./_pagination') %>
+            <pagination></pagination>
 
-        <template data-id="empty">
-            <div class="alert-warning alert">
+            <div v-show="!loading && empty" class="alert-warning alert">
                 <span data-t="">You have no requests</span>
             </div>
-        </template>
 
-        <template data-id="error">
-            <div class="alert-danger alert">{{text}}</div>
-        </template>
-
-        <div class="loadable-content"></div>
-        <div class="loader"><i class="fa fa-spinner fa-spin"></i></div>
+            <div v-show="loading" class="loader">
+                <i class="fa fa-spinner fa-spin"></i>
+            </div>
+        </div>
     </div>
-</div>
+</template>

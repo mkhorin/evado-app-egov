@@ -1,0 +1,23 @@
+<template id="model-form-boolean">
+    <div class="form-attr form-group row">
+        <div class="col-md-9 offset-md-3">
+            <input v-model="value" type="hidden">
+            <div :title="extHint" :data-t-title="translationCategory" class="form-check">
+                <template v-if="readOnly">
+                    <input :checked="value" type="checkbox" class="form-check-input" disabled>
+                    <label class="form-check-label">
+                        <span :data-t="translationCategory">{{label}}</span>
+                    </label>
+                </template>
+                <template v-else>
+                    <input @change="onCheck" :checked="value" type="checkbox" class="form-check-input">
+                    <label @click="onCheck" class="form-check-label">
+                        <span :data-t="translationCategory">{{label}}</span>
+                    </label>
+                </template>
+            </div>
+            <div class="error-block">{{error}}</div>
+            <div class="hint-block" :data-t="translationCategory">{{hint}}</div>
+        </div>
+    </div>
+</template>

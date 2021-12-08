@@ -1,0 +1,52 @@
+<template id="request-comments">
+    <div class="loadable-container">
+
+        <div v-if="commentCreation" class="comment-commands">
+            <button @click="onNew" class="btn-success btn" type="button">
+                <span data-t="">New comment</span>
+            </button>
+        </div>
+
+        <div v-show="!empty" class="comment-items">
+            <div v-for="item of items" :key="item.id" class="comment-item row-item">
+                <div class="comment-item-date cell">
+                    <div class="value">
+                        <a @click.prevent="onComment(item.id)" href="#">{{item.date}}</a>
+                    </div>
+                </div>
+                <div class="comment-item-sender cell">
+                    <label data-t="">Sender</label>
+                    <div class="value">{{item.sender}}</div>
+                </div>
+                <div class="comment-item-message cell">
+                    <label data-t="">Message</label>
+                    <div class="value">{{item.message}}</div>
+                </div>
+            </div>
+        </div>
+
+        <pagination></pagination>
+
+        <div v-show="!loading && empty" class="alert-warning alert mb-0">
+            <span data-t="">This request has no comments yet</span>
+        </div>
+
+        <div v-show="loading" class="loader">
+            <i class="fa fa-spinner fa-spin"></i>
+        </div>
+
+        <modal-dialog ref="newComment" title="New comment" size="lg">
+            <template #body>
+                <model-form
+                    meta-class="comment"
+                    ref="newCommentForm"
+                    :visible-attrs="['message','documents']"
+                    :file-attrs="['documents']">
+                </model-form>
+            </template>
+            <template #footer>
+                <button @click="onSend" class="btn-success btn" data-t="">Send</button>
+            </template>
+        </modal-dialog>
+    </div>
+</template>

@@ -1,0 +1,57 @@
+<template id="request-view">
+    <div class="page">
+        <div class="loadable-container">
+            <template v-show="!loading">
+
+                <breadcrumbs>
+                    <template #path>
+                        <li class="breadcrumb-item">
+                            <a @click.prevent="toServices" href="#" data-t="">Main</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a @click.prevent="onService(service)" href="#" data-t="">Service</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a @click.prevent="toAccount" href="#" data-t="">Account</a>
+                        </li>
+                        <li class="breadcrumb-item">{{serviceName}}</li>
+                    </template>
+                </breadcrumbs>
+
+                <div class="icon-title clearfix">
+                    <img v-if="icon" :src="icon" :alt="serviceName"
+                         class="float-start thumbnail-transparent thumbnail-sm img-thumbnail img-fluid">
+                    <h1 data-t="meta.class.service">{{serviceName}}</h1>
+                    <h3 class="subtitle">
+                        <span class="text-secondary" data-t="">Current request state</span>:
+                        <b class="" data-t="meta.class.request">{{stateTitle}}</b>
+                    </h3>
+                </div>
+
+                <tabs :items="['Comments', 'Form']">
+                    <template #0>
+                        <request-comments
+                            :comment-creation="true"
+                            :request-class="requestClass"
+                            :request="request"
+                            :service="service">
+                        </request-comments>
+                    </template>
+                    <template #1>
+                        <model-form
+                            :meta-class="requestClass"
+                            :id="request"
+                            :read-only="true"
+                            root-group="form">
+                        </model-form>
+                    </template>
+                </tabs>
+
+            </template>
+
+            <div v-show="loading" class="loader">
+                <i class="fa fa-spinner fa-spin"></i>
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,15 @@
+<template id="model-form-text">
+    <div :class="{'has-error': error, 'required': required, 'form-attr form-group row': true}">
+        <label :title="extHint" :data-t="translationCategory" class="col-md-3 col-form-label">{{label}}</label>
+        <div class="col-md-9">
+            <template v-if="readOnly">
+                <div class="form-control-plaintext">{{value}}</div>
+            </template>
+            <template v-else>
+                <textarea v-model="value" :rows="rows" :required="required" class="form-control"></textarea>
+            </template>
+            <div class="error-block">{{error}}</div>
+            <div class="hint-block" :data-t="translationCategory">{{hint}}</div>
+        </div>
+    </div>
+</template>
