@@ -4,10 +4,7 @@ Vue.component('model-form', {
     props: {
         id: String,
         metaClass: String,
-        metaView: {
-            type: String,
-            default: ''
-        },
+        metaView: String,
         readOnly: {
             type: Boolean,
             default: false
@@ -23,6 +20,12 @@ Vue.component('model-form', {
         skipEmpty: {
             type: Boolean,
             default: true
+        },
+        translationCategory: {
+            type: String,
+            default () {
+                return `meta.class.${this.metaClass}`;
+            }
         }
     },
     data () {
@@ -57,9 +60,7 @@ Vue.component('model-form', {
         async load () {
             try {
                 const meta = await this.loadMeta();
-                const data = this.id
-                    ? await this.loadData()
-                    : await this.loadDefaultData();
+                const data = await this.loadData();
                 this.build(meta, data);
             } catch (err) {
                 this.showError(err);
@@ -71,6 +72,11 @@ Vue.component('model-form', {
             });
         },
         loadData () {
+            return this.id
+                ? this.loadInstanceData()
+                : this.loadDefaultData();
+        },
+        loadInstanceData () {
             return this.fetchJson('read', {
                 id: this.id,
                 class: this.metaClass,
@@ -135,7 +141,7 @@ Vue.component('model-form', {
         },
         prepareAttrData (attr, data) {
             attr.readOnly = this.readOnly || attr.readOnly;
-            attr.value = data[attr.name];
+            attr.value = data.hasOwnProperty(attr.name) ? data[attr.name] : undefined;
             attr.valueTitle = this.getValueTitle(attr.name, data);
         },
         validate () {
@@ -160,8 +166,11 @@ Vue.component('model-form', {
             }
             return result;
         },
-        reset () {
-            this.getRefElements().forEach(ref => ref.reset());
+        async reset () {
+            const data = await this.loadData();
+            for (const ref of this.getRefElements()) {
+                ref.setValue(data.hasOwnProperty(ref.name) ? data[ref.name] : undefined);
+            }
         }
     },
     template: '#model-form'

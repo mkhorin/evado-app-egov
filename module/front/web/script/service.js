@@ -18,25 +18,18 @@ Vue.component('service', {
         };
     },
     async created () {
-        this.$on('load', this.onLoad);
-        await this.reload();
+        await this.load();
     },
     methods: {
         onFillForm () {
             this.$root.$emit('request-form', this.service);
         },
-        async reload () {
-            await this.load(this.service);
-        },
-        async load (id) {
+        async load () {
             const data = await this.fetchJson('read', {
                 class: 'service',
                 view: 'publicView',
-                id
+                id: this.service
             });
-            this.$emit('load', data);
-        },
-        onLoad (data) {
             this.id = data._id;
             this.name = data.name;
             this.brief = data.brief;

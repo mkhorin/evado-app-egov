@@ -4,37 +4,35 @@
         <div class="col-md-9">
             <template v-if="readOnly">
                 <div class="form-control-plaintext">
-                    <div class="doc-items">
-                        <div v-for="item of value" class="doc-item">
-                            <div class="doc-item-name">{{item.name}}</div>
-                            <div class="doc-item-link">
+                    <div class="file-items">
+                        <div v-for="item of value" class="file-item">
+                            <div class="file-item-name">{{item.name}}</div>
+                            <div class="file-item-link">
                                 <a :href="item.url" target="_blank"><span data-t="">Download</span></a>
                                 <small>({{item.size}})</small>
                             </div>
-                            <div class="doc-item-description">{{item.description}}</div>
+                            <div class="file-item-description">{{item.description}}</div>
                         </div>
                     </div>
                 </div>
             </template>
             <template v-else>
-                <div class="form-control-plaintext">
-                    <div class="doc-uploader">
-                        <input v-model="value" type="hidden">
-                        <div class="doc-uploader-commands">
-                            <button @click="onAdd" class="btn-outline-success btn" type="button">
-                                <span data-t="">Add document</span>
-                            </button>
-                        </div>
-                        <model-form-file-item
+                <div class="file-uploader">
+                    <input v-model="value" type="hidden">
+                    <div class="file-uploader-commands">
+                        <button @click="onAdd" class="btn-outline-success btn" type="button">
+                            <span data-t="">Add file</span>
+                        </button>
+                    </div>
+                    <model-form-file-item
                             v-for="item of items"
                             :key="item.key"
                             ref="item"
                             :meta-class="refClass"
                             @remove="onRemove(item)">
-                        </model-form-file-item>
-                    </div>
-                    <div class="error-block"></div>
+                    </model-form-file-item>
                 </div>
+                <div class="error-block"></div>
             </template>
             <div class="error-block">{{error}}</div>
             <div class="hint-block" :data-t="translationCategory">{{hint}}</div>

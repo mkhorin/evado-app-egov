@@ -2,7 +2,7 @@
 
 Object.assign(Jam.I18n.defaults, {
 
-    'Add document': 'Добавить документ',
+    'Add file': 'Добавить файл',
 
     'Back to request': 'Вернуться к запросу',
 

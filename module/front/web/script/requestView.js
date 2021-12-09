@@ -16,16 +16,13 @@ Vue.component('request-view', {
         };
     },
     async created () {
-        await this.reload();
+        await this.load();
     },
     methods: {
         onService (id) {
             this.$root.$emit('service', id);
         },
-        async reload () {
-            await this.load();
-        },
-        async load (id) {
+        async load () {
             await this.loadService();
             await this.loadRequest();
         },

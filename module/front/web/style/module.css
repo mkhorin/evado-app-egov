@@ -175,13 +175,6 @@ body {
     border: 1px solid #ddd;
     border-top: none;
 }
-.form-error {
-    display: none;
-}
-.form-error.has-error {
-    display: block;
-}
-
 /* REQUESTS */
 
 .request-item {
@@ -219,26 +212,28 @@ body {
 .comment-item-message {
     width: 65%;
 }
-.doc-item + .doc-item {
+
+/* FILES */
+
+.file-item + .file-item {
     margin-top: 20px;
     padding-top: 20px;
     border-top: 1px solid #ccc;
 }
-.doc-item-link {
+.file-item-link {
     margin: 10px 0;
 }
-.doc-uploader-commands {
+.file-uploader-commands {
     margin: 5px 0 15px;
-    text-align: right;
 }
-.doc-uploader-item {
+.file-uploader-item {
     position: relative;
     padding-right: 35px;
 }
-.doc-uploader-item + .doc-uploader-item {
+.file-uploader-item + .file-uploader-item {
     margin-top: 15px;
 }
-.doc-uploader-item .btn {
+.file-uploader-item .btn {
     position: absolute;
     right: 0;
     top: 0;

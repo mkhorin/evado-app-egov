@@ -7,13 +7,6 @@ Vue.component('request-comment', {
         requestClass: String,
         service: String
     },
-    data () {
-        return {
-        };
-    },
-    async created () {
-
-    },
     methods: {
         onRequest () {
             this.$root.$emit('request-view', {

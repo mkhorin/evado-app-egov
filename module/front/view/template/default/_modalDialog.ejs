@@ -6,7 +6,7 @@
                     <h5 class="modal-title" data-t="">{{title}}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
-                <div class="modal-body">
+                <div v-if="visible" class="modal-body">
 
                     <slot name="body"></slot>
 

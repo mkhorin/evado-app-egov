@@ -35,8 +35,8 @@ Vue.component('request-comments', {
             });
         },
         onNew () {
-            this.$refs.newCommentForm.reset();
-            this.newCommentModal = this.showModal(this.$refs.newComment);
+            this.$refs.newComment.show();
+            this.$refs.newCommentForm?.reset();
         },
         onSend () {
             const form = this.$refs.newCommentForm;
@@ -54,7 +54,7 @@ Vue.component('request-comments', {
                     class: 'comment',
                     data
                 });
-                this.newCommentModal.hide();
+                this.$refs.newComment.hide();
                 await this.reload();
             } catch (err) {
                 this.showError(err);

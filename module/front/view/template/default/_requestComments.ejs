@@ -38,6 +38,7 @@
         <modal-dialog ref="newComment" title="New comment" size="lg">
             <template #body>
                 <model-form
+                    key="newCommentForm"
                     meta-class="comment"
                     ref="newCommentForm"
                     :visible-attrs="['message','documents']"

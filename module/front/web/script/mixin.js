@@ -22,20 +22,20 @@ Vue.mixin({
         getMetaUrl (action) {
             return `${this.$root.metaUrl}/${action}`;
         },
-        getDownloadUrl (cls, id) {
-            return `${this.getFileUrl('download', cls)}&id=${id}`;
+        getDownloadUrl (metaClass, id) {
+            return `${this.getFileUrl('download', metaClass)}&id=${id}`;
         },
-        getUploadUrl (cls) {
-            return this.getFileUrl('upload', cls);
+        getUploadUrl (metaClass) {
+            return this.getFileUrl('upload', metaClass);
         },
-        getFileUrl (action, cls) {
-            return `${this.$root.fileUrl}/${action}?c=${cls}`;
+        getFileUrl (action, metaClass) {
+            return `${this.$root.fileUrl}/${action}?c=${metaClass}`;
         },
         getThumbnailUrl (id, size = '') {
             return id ? `${this.$root.thumbnailUrl}&s=${size}&id=${id}` : null;
         },
-        getRandomId (max = 99999) {
-            return `${Date.now()}${Jam.Helper.random(0, max)}`;
+        getRandomId () {
+            return `${Date.now()}${Jam.Helper.random(10000, 99999)}`;
         },
         getRefArray (name) {
             const data = this.$refs[name];
@@ -57,15 +57,12 @@ Vue.mixin({
         fetchText (action, ...args) {
             return this.fetchByMethod('getText', this.getDataUrl(action), ...args);
         },
-        fetchFile (cls, file, options) {
+        fetchFile (metaClass, file, options) {
+            const headers = {};
             const body = new FormData;
             body.append('file', file.name);
             body.append('file', file);
-            return this.fetchByMethod('getJson', this.getUploadUrl(cls), null, {
-                headers: {},
-                body,
-                ...options
-            });
+            return this.fetchByMethod('getJson', this.getUploadUrl(metaClass), null, {headers, body, ...options});
         },
         fetchByMethod (name, url, data, options) {
             try {
@@ -94,9 +91,6 @@ Vue.mixin({
         },
         showError () {
             Jam.dialog.error(...arguments);
-        },
-        showModal (ref) {
-            return Jam.showModal($(ref.$el));
         }
     }
 });

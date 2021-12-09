@@ -50,11 +50,11 @@ Vue.component('model-form-attr', {
         serialize () {
             return this.value;
         },
-        reset () {
-            this.clearValue();
-        },
         clearValue () {
-            this.value = '';
+            this.value = null;
+        },
+        setValue (value) {
+            this.value = value;
         }
     }
 });
