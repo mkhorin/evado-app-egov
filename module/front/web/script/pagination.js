@@ -55,7 +55,9 @@ Vue.component('pagination', {
             if (page < 0) {
                 page = 0;
             }
-            this.$parent.load(page);
+            if (page !== this.page) {
+                this.$emit('change', page);
+            }
         }
     },
     template: '#pagination'

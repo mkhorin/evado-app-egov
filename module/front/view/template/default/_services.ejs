@@ -30,7 +30,7 @@
                 </div>
             </div>
 
-            <pagination></pagination>
+            <pagination @change="load"></pagination>
 
             <div v-show="!loading && empty" class="alert-danger alert">
                 <span data-t="">No services found</span>
