@@ -37,13 +37,14 @@
 
         <modal-dialog ref="newComment" title="New comment" size="lg">
             <template #body>
-                <model-form
+                <comment-form
                     key="newCommentForm"
                     meta-class="comment"
                     ref="newCommentForm"
+                    :file-attrs="['documents']"
                     :visible-attrs="['message','documents']"
-                    :file-attrs="['documents']">
-                </model-form>
+                    :request="request">
+                </comment-form>
             </template>
             <template #footer>
                 <button @click="onSend" class="btn-success btn" data-t="">Send</button>

@@ -1,11 +1,11 @@
 /**
  * @copyright Copyright (c) 2020 Maxim Khorin <maksimovichu@gmail.com>
+ *
+ * User can read documents related to his own requests (via comments)
  */
 'use strict';
 
 const Base = require('evado/component/meta/rbac/rule/BaseRule');
-
-// user can read documents related to his own requests (via comments)
 
 module.exports = class UserDocumentReadRule extends Base {
 
@@ -24,7 +24,10 @@ module.exports = class UserDocumentReadRule extends Base {
         return !!(await query.id());
     }
 
-    async getObjectFilter () { // filter objects in list
+    /**
+     * Filter objects in list
+     */
+    async getObjectFilter () {
         const meta = this.getBaseMeta();
         const requestClass = meta.getClass('request');
         const requests = await requestClass.findByCreator(this.getUserId()).ids();
