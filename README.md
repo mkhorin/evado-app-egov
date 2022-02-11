@@ -1,4 +1,4 @@
-# Evado E-government Web App
+# E-government Web App
 
 An application build on [Evado Declarative Framework](https://github.com/mkhorin/evado) 
 provides services through electronic request forms. 
