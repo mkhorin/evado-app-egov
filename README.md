@@ -1,11 +1,11 @@
 # E-government Web App
 
-An application build on [Evado Declarative Framework](https://github.com/mkhorin/evado) 
-provides services through electronic request forms. 
+An application build on [Evado Declarative Framework](https://github.com/mkhorin/evado)
+provides services through electronic request forms.
 
 - Unique electronic form for each service.
 - Limit permissions for clients, managers, and administrators.
-- Support for third-party web interfaces through AJAX API.    
+- Support for third-party web interfaces through AJAX API.
 
 [![Web app built on Evado declarative framework](doc/evado-app.png)](http://nervebit.com)
 

@@ -3,7 +3,7 @@
 const Base = require('evado/Application');
 
 module.exports = class EGovApplication extends Base {
-    
+
     constructor (config) {
         super({
             original: Base,

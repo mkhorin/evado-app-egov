@@ -8,7 +8,7 @@
             "program": "${workspaceFolder}/console/start.js",
             "env": {
                 "NODE_ENV": "development"
-            }            
+            }
         },
         {
             "type": "node",
@@ -18,6 +18,6 @@
             "env": {
                 "NODE_ENV": "development"
             }
-        }        
+        }
     ]
 }
