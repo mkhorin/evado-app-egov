@@ -7,7 +7,7 @@ provides services through electronic request forms.
 - Limit permissions for clients, managers, and administrators.
 - Support for third-party web interfaces through AJAX API.
 
-[![Web app built on Evado declarative framework](doc/evado-app.png)](http://nervebit.com)
+[![Web app built on Evado declarative framework](doc/evado-app.png)](https://mkhorin.github.io/evado-site/)
 
 ## Docker installation
 
@@ -55,4 +55,4 @@ Password: 123456
 ```
 
 ## Tutorial
-- [Build an App Without Coding](http://nervebit.com)
+- [Build an App Without Coding](https://mkhorin.github.io/evado-site/)
