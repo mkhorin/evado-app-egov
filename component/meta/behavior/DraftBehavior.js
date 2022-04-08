@@ -12,7 +12,7 @@ module.exports = class DraftBehavior extends Base {
         if (this.owner.isNew() || state === 'draft') {
             this.extractRequiredValidators(); // to save draft without required data
         } else {
-            this.unsetFormGroupValues(); //
+            this.unsetFormGroupValues();
         }
         await this.checkServiceActivity();
         await this.checkRequestCounter();
