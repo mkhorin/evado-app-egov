@@ -63,6 +63,6 @@ const user = _controller.user;
      data-csrf="<%- _controller.getCsrfToken() %>">
 
     <keep-alive include="services,service">
-        <componen :is="activePage" v-bind="activePageProps"></componen>
+        <component :is="activePage" v-bind="activePageProps"></component>
     </keep-alive>
 </div>
