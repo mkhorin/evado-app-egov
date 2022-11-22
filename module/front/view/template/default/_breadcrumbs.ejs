@@ -1,14 +1,14 @@
 <template id="breadcrumbs">
-    <div class="page-head">
-        <ol class="breadcrumb">
-            <slot name="path">
-                <li class="breadcrumb-item" data-t="">Main</li>
-            </slot>
-        </ol>
+  <div class="page-head">
+    <ol class="breadcrumb">
+      <slot name="path">
+        <li class="breadcrumb-item" data-t="">Main</li>
+      </slot>
+    </ol>
 
-        <div @click="toAccount" class="user-toggle" title="Account">
-            <i class="icon fa fa-user me-1"></i>
-            <span data-t="">Account</span>
-        </div>
+    <div @click="toAccount" class="user-toggle" title="Account">
+      <i class="icon fa fa-user me-1"></i>
+      <span data-t="">Account</span>
     </div>
+  </div>
 </template>

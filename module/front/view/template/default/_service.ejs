@@ -1,37 +1,37 @@
 <template id="service">
-    <div class="page">
-        <div class="service loadable-container">
-            <template v-show="!loading">
+  <div class="page">
+    <div class="service loadable-container">
+      <template v-show="!loading">
 
-                <breadcrumbs>
-                    <template #path>
-                        <li class="breadcrumb-item">
-                            <a @click.prevent="toServices" href="#" data-t="">Main</a>
-                        </li>
-                        <li class="breadcrumb-item">{{name}}</li>
-                    </template>
-                </breadcrumbs>
+        <breadcrumbs>
+          <template #path>
+            <li class="breadcrumb-item">
+              <a @click.prevent="toServices" href="#" data-t="">Main</a>
+            </li>
+            <li class="breadcrumb-item">{{name}}</li>
+          </template>
+        </breadcrumbs>
 
-                <div class="icon-title clearfix">
-                    <img :src="icon" :alt="name"
-                         class="float-start thumbnail-transparent thumbnail-sm img-thumbnail img-fluid">
-                    <h1 data-t="meta.class.service">{{name}}</h1>
-                    <h3 data-t="meta.class.service" class="subtitle">{{brief}}</h3>
-                </div>
-                <div class="description" v-html="description"></div>
-
-                <button v-show="request" @click="onFillForm" class="btn-primary btn" type="button">
-                    <span data-t="">Fill a form</span>
-                </button>
-
-                <div v-show="!request" class="alert-warning alert">
-                    <span data-t="">Unfortunately, the service request form is currently unavailable</span>
-                </div>
-            </template>
-
-            <div v-show="loading" class="loader">
-                <i class="fa fa-spinner fa-spin"></i>
-            </div>
+        <div class="icon-title clearfix">
+          <img :src="icon" :alt="name"
+             class="float-start thumbnail-transparent thumbnail-sm img-thumbnail img-fluid">
+          <h1 data-t="meta.class.service">{{name}}</h1>
+          <h3 data-t="meta.class.service" class="subtitle">{{brief}}</h3>
         </div>
+        <div class="description" v-html="description"></div>
+
+        <button v-show="request" @click="onFillForm" class="btn-primary btn" type="button">
+          <span data-t="">Fill a form</span>
+        </button>
+
+        <div v-show="!request" class="alert-warning alert">
+          <span data-t="">Unfortunately, the service request form is currently unavailable</span>
+        </div>
+      </template>
+
+      <div v-show="loading" class="loader">
+        <i class="fa fa-spinner fa-spin"></i>
+      </div>
     </div>
+  </div>
 </template>

@@ -1,13 +1,13 @@
 <template id="model-form">
-    <div class="form">
-        <template v-for="element of elements">
-            <component
-                :is="getElementComponentName(element)"
-                :element="element"
-                :translation-category="translationCategory"
-                ref="element"
-                @change="onChangeElement">
-            </component>
-        </template>
-    </div>
+  <div class="form">
+    <template v-for="element of elements">
+      <component
+        :is="getElementComponentName(element)"
+        :element="element"
+        :translation-category="translationCategory"
+        ref="element"
+        @change="onChangeElement">
+      </component>
+    </template>
+  </div>
 </template>

@@ -1,56 +1,56 @@
 <template id="request-form">
-    <div class="page">
-        <div class="request-form loadable-container">
-            <template v-show="!loading">
+  <div class="page">
+    <div class="request-form loadable-container">
+      <template v-show="!loading">
 
-                <breadcrumbs>
-                    <template #path>
-                        <li class="breadcrumb-item">
-                            <a @click.prevent="toServices" href="#" data-t="">Main</a>
-                        </li>
-                        <li class="breadcrumb-item">
-                            <a @click.prevent="onService(service)" href="#" data-t="">Service</a>
-                        </li>
-                        <li class="breadcrumb-item" data-t="">Create request</li>
-                    </template>
-                </breadcrumbs>
+        <breadcrumbs>
+          <template #path>
+            <li class="breadcrumb-item">
+              <a @click.prevent="toServices" href="#" data-t="">Main</a>
+            </li>
+            <li class="breadcrumb-item">
+              <a @click.prevent="onService(service)" href="#" data-t="">Service</a>
+            </li>
+            <li class="breadcrumb-item" data-t="">Create request</li>
+          </template>
+        </breadcrumbs>
 
-                <h1 data-t="meta.class.request">{{title}}</h1>
+        <h1 data-t="meta.class.request">{{title}}</h1>
 
-                <template v-if="draftRequest">
+        <template v-if="draftRequest">
 
-                    <h4 data-t="">Please fill out and submit this service request form</h4>
+          <h4 data-t="">Please fill out and submit this service request form</h4>
 
-                    <model-form
-                        :meta-class="request"
-                        :id="requestId"
-                        ref="form"
-                        root-group="form"
-                        translation-category="meta.class.request"
-                        @change="onChangeForm">
-                    </model-form>
+          <model-form
+            :meta-class="request"
+            :id="requestId"
+            ref="form"
+            root-group="form"
+            translation-category="meta.class.request"
+            @change="onChangeForm">
+          </model-form>
 
-                    <div class="commands">
-                        <button @click="onSave" :disabled="!changed" class="btn-primary btn" type="button">
-                            <span data-t="">Save</span>
-                        </button>
-                        <button @click="onSubmit" class="btn-success btn" type="button">
-                            <span data-t="">Submit</span>
-                        </button>
-                    </div>
-                </template>
+          <div class="commands">
+            <button @click="onSave" :disabled="!changed" class="btn-primary btn" type="button">
+              <span data-t="">Save</span>
+            </button>
+            <button @click="onSubmit" class="btn-success btn" type="button">
+              <span data-t="">Submit</span>
+            </button>
+          </div>
+        </template>
 
-                <template v-else>
-                    <div class="alert-success alert">
-                        <span data-t="">Your request has already been created</span>
-                    </div>
-                </template>
+        <template v-else>
+          <div class="alert-success alert">
+            <span data-t="">Your request has already been created</span>
+          </div>
+        </template>
 
-            </template>
+      </template>
 
-            <div v-show="loading" class="loader">
-                <i class="fa fa-spinner fa-spin"></i>
-            </div>
-        </div>
+      <div v-show="loading" class="loader">
+        <i class="fa fa-spinner fa-spin"></i>
+      </div>
     </div>
+  </div>
 </template>

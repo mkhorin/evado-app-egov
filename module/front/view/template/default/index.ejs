@@ -54,15 +54,15 @@ const user = _controller.user;
 <%- include(_view.get('_part/signboard')) %>
 
 <div id="front"
-     data-user-id="<%- user.getId() %>"
-     data-auth-url="<%- _url('/auth/sign-in?returnUrl=/front') %>"
-     data-data-url="<%- _url('/api/base/data') %>"
-     data-meta-url="<%- _url('/api/base/meta') %>"
-     data-file-url="<%- _url('/api/base/file') %>"
-     data-thumbnail-url="<%- _url('/api/base/file/thumbnail') %>?c=icon"
-     data-csrf="<%- _controller.getCsrfToken() %>">
+   data-user-id="<%- user.getId() %>"
+   data-auth-url="<%- _url('/auth/sign-in?returnUrl=/front') %>"
+   data-data-url="<%- _url('/api/base/data') %>"
+   data-meta-url="<%- _url('/api/base/meta') %>"
+   data-file-url="<%- _url('/api/base/file') %>"
+   data-thumbnail-url="<%- _url('/api/base/file/thumbnail') %>?c=icon"
+   data-csrf="<%- _controller.getCsrfToken() %>">
 
-    <keep-alive include="services,service">
-        <component :is="activePage" v-bind="activePageProps"></component>
-    </keep-alive>
+  <keep-alive include="services,service">
+    <component :is="activePage" v-bind="activePageProps"></component>
+  </keep-alive>
 </div>

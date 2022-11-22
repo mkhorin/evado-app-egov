@@ -11,9 +11,7 @@ Vue.component('comment-form', {
                 class: this.metaClass,
                 view: this.metaView,
                 data: {
-                    request: {
-                        links: this.request
-                    }
+                    request: this.request
                 }
             });
         }

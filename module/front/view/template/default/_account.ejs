@@ -1,54 +1,54 @@
 <template id="account">
-    <div class="page">
+  <div class="page">
 
-        <breadcrumbs>
-            <template #path>
-                <li class="breadcrumb-item">
-                    <a @click.prevent="toServices" href="#" data-t="">Main</a>
-                </li>
-                <li class="breadcrumb-item" data-t="">Account</li>
-            </template>
-        </breadcrumbs>
+    <breadcrumbs>
+      <template #path>
+        <li class="breadcrumb-item">
+          <a @click.prevent="toServices" href="#" data-t="">Main</a>
+        </li>
+        <li class="breadcrumb-item" data-t="">Account</li>
+      </template>
+    </breadcrumbs>
 
-        <h1 data-t="">My service requests</h1>
+    <h1 data-t="">My service requests</h1>
 
-        <div class="loadable-container">
+    <div class="loadable-container">
 
-            <div v-show="!empty" class="request-items">
-                <div v-for="item of items" :key="item.id" class="request-item row-item">
-                    <div class="request-item-id cell">
-                        <label data-t="">Request number</label>
-                        <div class="value">
-                            <a @click.prevent="onRequest(item)" href="#">#{{item.id}}</a>
-                        </div>
-                    </div>
-                    <div class="request-item-state cell">
-                        <label data-t="">Current state</label>
-                        <div class="value" data-t="meta.class.request">{{item.stateTitle}}</div>
-                    </div>
-                    <div class="request-item-service cell">
-                        <label data-t="">Service</label>
-                        <div class="value">
-                            <a @click.prevent="onService(item.service?._id)" href="#">
-                                <span data-t="meta.class.request">{{item.service?._title}}</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="request-item-icon cell">
-                        <img v-if="item.icon" :src="item.icon" class="thumbnail-transparent img-thumbnail" alt="">
-                    </div>
-                </div>
+      <div v-show="!empty" class="request-items">
+        <div v-for="item of items" :key="item.id" class="request-item row-item">
+          <div class="request-item-id cell">
+            <label data-t="">Request number</label>
+            <div class="value">
+              <a @click.prevent="onRequest(item)" href="#">#{{item.id}}</a>
             </div>
-
-            <pagination @change="load"></pagination>
-
-            <div v-show="!loading && empty" class="alert-warning alert">
-                <span data-t="">You have no requests</span>
+          </div>
+          <div class="request-item-state cell">
+            <label data-t="">Current state</label>
+            <div class="value" data-t="meta.class.request">{{item.stateTitle}}</div>
+          </div>
+          <div class="request-item-service cell">
+            <label data-t="">Service</label>
+            <div class="value">
+              <a @click.prevent="onService(item.service?._id)" href="#">
+                <span data-t="meta.class.request">{{item.service?._title}}</span>
+              </a>
             </div>
-
-            <div v-show="loading" class="loader">
-                <i class="fa fa-spinner fa-spin"></i>
-            </div>
+          </div>
+          <div class="request-item-icon cell">
+            <img v-if="item.icon" :src="item.icon" class="thumbnail-transparent img-thumbnail" alt="">
+          </div>
         </div>
+      </div>
+
+      <pagination @change="load"></pagination>
+
+      <div v-show="!loading && empty" class="alert-warning alert">
+        <span data-t="">You have no requests</span>
+      </div>
+
+      <div v-show="loading" class="loader">
+        <i class="fa fa-spinner fa-spin"></i>
+      </div>
     </div>
+  </div>
 </template>

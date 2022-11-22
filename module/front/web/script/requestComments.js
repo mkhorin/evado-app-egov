@@ -47,7 +47,7 @@ Vue.component('request-comments', {
         async send (data) {
             try {
                 data = {
-                    request: {links: this.request},
+                    request: this.request,
                     ...data
                 };
                 await this.fetchText('create', {

@@ -1,24 +1,24 @@
 <template id="modal-dialog">
-    <div class="modal" tabindex="-1" role="dialog">
-        <div :class="css">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" data-t="">{{title}}</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div v-if="visible" class="modal-body">
-
-                    <slot name="body"></slot>
-
-                </div>
-                <div class="modal-footer">
-
-                    <slot name="footer"></slot>
-
-                    <button class="btn-outline-secondary btn"
-                            data-bs-dismiss="modal" title="Cancel" data-t="">Close</button>
-                </div>
-            </div>
+  <div class="modal" tabindex="-1" role="dialog">
+    <div :class="css">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" data-t="">{{title}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
+        <div v-if="visible" class="modal-body">
+
+          <slot name="body"></slot>
+
+        </div>
+        <div class="modal-footer">
+
+          <slot name="footer"></slot>
+
+          <button class="btn-outline-secondary btn"
+              data-bs-dismiss="modal" title="Cancel" data-t="">Close</button>
+        </div>
+      </div>
     </div>
+  </div>
 </template>

@@ -1,23 +1,23 @@
 <template id="pagination">
-    <nav v-show="visible" class="mt-3">
-        <ul class="pagination">
-            <li class="page-item">
-                <a @click.prevent="onFirst" class="page-link" href="#"><span>«</span></a>
-            </li>
-            <li class="page-item">
-                <a @click.prevent="onPrev" class="page-link" href="#"><span>‹</span></a>
-            </li>
-            <template v-for="page in pages">
-                <li :class="{'active': page.active, 'page-item': true}">
-                    <a @click.prevent="onPage(page.page)" class="page-link" href="#">{{page.text}}</a>
-                </li>
-            </template>
-            <li class="page-item">
-                <a @click.prevent="onNext" class="page-link" href="#"><span>›</span></a>
-            </li>
-            <li class="page-item">
-                <a @click.prevent="onLast" class="page-link" href="#"><span>»</span></a>
-            </li>
-        </ul>
-    </nav>
+  <nav v-show="visible" class="mt-3">
+    <ul class="pagination">
+      <li class="page-item">
+        <a @click.prevent="onFirst" class="page-link" href="#"><span>«</span></a>
+      </li>
+      <li class="page-item">
+        <a @click.prevent="onPrev" class="page-link" href="#"><span>‹</span></a>
+      </li>
+      <template v-for="page in pages">
+        <li :class="{'active': page.active, 'page-item': true}">
+          <a @click.prevent="onPage(page.page)" class="page-link" href="#">{{page.text}}</a>
+        </li>
+      </template>
+      <li class="page-item">
+        <a @click.prevent="onNext" class="page-link" href="#"><span>›</span></a>
+      </li>
+      <li class="page-item">
+        <a @click.prevent="onLast" class="page-link" href="#"><span>»</span></a>
+      </li>
+    </ul>
+  </nav>
 </template>

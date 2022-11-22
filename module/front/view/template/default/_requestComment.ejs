@@ -1,45 +1,45 @@
 <template id="request-comment">
-    <div class="page">
+  <div class="page">
 
-        <breadcrumbs>
-            <template #path>
-                <li class="breadcrumb-item">
-                    <a @click.prevent="toServices" href="#" data-t="">Main</a>
-                </li>
-                <li class="breadcrumb-item">
-                    <a @click.prevent="toAccount" href="#" data-t="">Account</a>
-                </li>
-                <li class="breadcrumb-item">
-                    <a @click.prevent="onRequest" href="#" data-t="">Request</a>
-                </li>
-                <li class="breadcrumb-item" data-t="">Comment</li>
-            </template>
-        </breadcrumbs>
+    <breadcrumbs>
+      <template #path>
+        <li class="breadcrumb-item">
+          <a @click.prevent="toServices" href="#" data-t="">Main</a>
+        </li>
+        <li class="breadcrumb-item">
+          <a @click.prevent="toAccount" href="#" data-t="">Account</a>
+        </li>
+        <li class="breadcrumb-item">
+          <a @click.prevent="onRequest" href="#" data-t="">Request</a>
+        </li>
+        <li class="breadcrumb-item" data-t="">Comment</li>
+      </template>
+    </breadcrumbs>
 
-        <h1 data-t="">Request comment</h1>
+    <h1 data-t="">Request comment</h1>
 
-        <div class="loadable-container mb-4">
-            <template v-show="!loading">
-                <model-form
-                    meta-class="comment"
-                    meta-view="readByUser"
-                    :id="comment"
-                    :read-only="true"
-                    :file-attrs="['documents']">
-                </model-form>
-            </template>
+    <div class="loadable-container mb-4">
+      <template v-show="!loading">
+        <model-form
+          meta-class="comment"
+          meta-view="readByUser"
+          :id="comment"
+          :read-only="true"
+          :file-attrs="['documents']">
+        </model-form>
+      </template>
 
-            <div v-show="loading" class="loader">
-                <i class="fa fa-spinner fa-spin"></i>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-9 offset-md-3">
-                <button @click="onRequest" class="btn-primary btn">
-                    <span data-t="">Back to request</span>
-                </button>
-            </div>
-        </div>
+      <div v-show="loading" class="loader">
+        <i class="fa fa-spinner fa-spin"></i>
+      </div>
     </div>
+
+    <div class="row">
+      <div class="col-md-9 offset-md-3">
+        <button @click="onRequest" class="btn-primary btn">
+          <span data-t="">Back to request</span>
+        </button>
+      </div>
+    </div>
+  </div>
 </template>

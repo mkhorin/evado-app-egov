@@ -1,21 +1,21 @@
 <template id="tabs">
-    <div class="form">
-        <div class="form-tabs tabs">
-            <div class="nav nav-tabs" role="tablist">
-                <template v-for="(item, index) of items">
-                    <a :class="{'active': index === activeIndex, 'nav-item nav-link': true}"
-                       @click.prevent="onTab(index)" href="#">
-                        <span data-t="">{{item}}</span>
-                    </a>
-                </template>
-            </div>
-            <div class="tab-content">
-                <template v-for="(item, index) of items">
-                    <div :class="{'active': index === activeIndex, 'tab-pane model-group': true}">
-                        <slot :name="index"></slot>
-                    </div>
-                </template>
-            </div>
-        </div>
+  <div class="form">
+    <div class="form-tabs tabs">
+      <div class="nav nav-tabs" role="tablist">
+        <template v-for="(item, index) of items">
+          <a :class="{'active': index === activeIndex, 'nav-item nav-link': true}"
+             @click.prevent="onTab(index)" href="#">
+            <span data-t="">{{item}}</span>
+          </a>
+        </template>
+      </div>
+      <div class="tab-content">
+        <template v-for="(item, index) of items">
+          <div :class="{'active': index === activeIndex, 'tab-pane model-group': true}">
+            <slot :name="index"></slot>
+          </div>
+        </template>
+      </div>
     </div>
+  </div>
 </template>

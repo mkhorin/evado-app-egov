@@ -1,25 +1,25 @@
 <template id="model-form-select">
-    <div :class="{'has-error': error, 'required': required, 'form-attr form-group row': true}">
-        <label class="col-md-3 col-form-label">
-            <span :data-t="translationCategory" class="col-form-label-text">{{label}}</span>
-            <i v-if="extHint" class="hint-icon" :title="extHint" :data-t="translationCategory"></i>
-        </label>
-        <div class="col-md-9">
-            <template v-if="readOnly">
-                <template v-for="item of items">
-                    <div v-if="item.value === value" class="form-control-plaintext">
-                        <span :data-t="translationCategory">{{item.text}}</span>
-                    </div>
-                </template>
-            </template>
-            <template v-else>
-                <select v-model="value" :required="required" class="form-select">
-                    <option value="">---</option>
-                    <option v-for="item of items" :value="item.value" :data-t="translationCategory">{{item.text}}</option>
-                </select>
-            </template>
-            <div class="error-block">{{error}}</div>
-            <div class="hint-block" :data-t="translationCategory">{{hint}}</div>
-        </div>
+  <div :class="{'has-error': error, 'required': required, 'form-attr form-group row': true}">
+    <label class="col-md-3 col-form-label">
+      <span :data-t="translationCategory" class="col-form-label-text">{{label}}</span>
+      <i v-if="extHint" class="hint-icon" :title="extHint" :data-t="translationCategory"></i>
+    </label>
+    <div class="col-md-9">
+      <template v-if="readOnly">
+        <template v-for="item of items">
+          <div v-if="item.value === value" class="form-control-plaintext">
+            <span :data-t="translationCategory">{{item.text}}</span>
+          </div>
+        </template>
+      </template>
+      <template v-else>
+        <select v-model="value" :required="required" class="form-select">
+          <option value="">---</option>
+          <option v-for="item of items" :value="item.value" :data-t="translationCategory">{{item.text}}</option>
+        </select>
+      </template>
+      <div class="error-block">{{error}}</div>
+      <div class="hint-block" :data-t="translationCategory">{{hint}}</div>
     </div>
+  </div>
 </template>
