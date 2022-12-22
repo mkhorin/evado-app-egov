@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="<%- _controller.language %>">
 <head>
-    <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1" name="viewport">
-    <base href="<%- _baseUrl %>">
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <base href="<%- _baseUrl %>">
 
-    <title>E-Gov Front</title>
+  <title>E-Gov Front</title>
 
-    <%- include(_view.get('_part/asset/style/main')) %>
+  <%- include(_view.get('_part/asset/style/main')) %>
 
-    <link rel="stylesheet" href="front/style/module.css">
+  <link rel="stylesheet" href="front/style/module.css">
 </head>
 <body data-csrf="<%- _controller.getCsrfToken() %>">
 
 <div class="main-wrapper">
 
-    <%- body %>
+  <%- body %>
 
 </div>
 

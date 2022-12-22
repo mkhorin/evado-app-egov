@@ -1,240 +1,240 @@
 body {
-    --navbar-color: var(--light-warning);
-    --super-navbar-color: var(--dark-warning);
-    --sidebar-width: 0;
+  --navbar-color: var(--light-warning);
+  --super-navbar-color: var(--dark-warning);
+  --sidebar-width: 0;
 }
 .pagination > li > a {
-    padding: 6px 12px;
+  padding: 6px 12px;
 }
 
 .subtitle {
-    margin: 20px 0 30px;
-    font-size: 18px;
-    color: #444;
+  margin: 20px 0 30px;
+  font-size: 18px;
+  color: #444;
 }
 
 /* LOADABLE */
 
 .loadable-container {
-    position: relative;
+  position: relative;
 }
 .loadable-container > .loader {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 101;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 101;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* ROW ITEMS */
 
 .row-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #f4f4f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f4f4f0;
 }
 .row-item:nth-child(odd) {
-    background: #fafafa;
+  background: #fafafa;
 }
 .row-item .cell {
-    padding: 15px;
-    overflow: hidden;
+  padding: 15px;
+  overflow: hidden;
 }
 .row-item .cell > label {
-    color: #888;
+  color: #888;
 }
 @media (max-width: 768px) {
-    .row-item .cell {
-        width: auto !important;
-    }
+  .row-item .cell {
+    width: auto !important;
+  }
 }
 
 /* PAGE */
 
 .page h1 {
-    font-size: 30px;
-    margin: 30px 0;
+  font-size: 30px;
+  margin: 30px 0;
 }
 .page > h3 {
-    color: #888;
+  color: #888;
 }
 .page-head {
-    position: relative;
+  position: relative;
 }
 .page .icon-title h1 {
-    margin: 25px 0 10px;
+  margin: 25px 0 10px;
 }
 .page .icon-title .img-thumbnail {
-    margin: 0 2rem 1rem 0;
+  margin: 0 2rem 1rem 0;
 }
 
 /* USER */
 
 .user-toggle {
-    position: absolute;
-    right: 0;
-    top: 0;
-    cursor: pointer;
-    color: #666;
-    padding: 0 12px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+  color: #666;
+  padding: 0 12px;
 }
 .user-toggle:hover {
-    color: var(--dark-primary);
+  color: var(--dark-primary);
 }
 
 /* SEARCH FORM */
 
 .search-form {
-    padding: 15px 0;
-    margin: 30px 0;
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
+  padding: 15px 0;
+  margin: 30px 0;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
 }
 
 /* SERVICE */
 
 .service-card {
-    margin: 0 auto 20px;
-    padding: 15px;
-    background: #fff;
-    overflow: auto;
-    border-bottom: 2px solid var(--dark-primary);
-    text-align: center;
-    max-width: 320px;
+  margin: 0 auto 20px;
+  padding: 15px;
+  background: #fff;
+  overflow: auto;
+  border-bottom: 2px solid var(--dark-primary);
+  text-align: center;
+  max-width: 320px;
 }
 .service-card .img-thumbnail {
-    margin: 0 auto;
-    max-width: 70%;
-    min-height: 120px;
-    border: none;
+  margin: 0 auto;
+  max-width: 70%;
+  min-height: 120px;
+  border: none;
 }
 .service-card h3 a {
-    display: block;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-size: 1.2rem;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 1.2rem;
 }
 .service-card a + h3 {
-    margin-top: 1rem;
+  margin-top: 1rem;
 }
 .service-row {
-    display: flex;
-    align-items: center;
-    position: relative;
-    min-height: 95px;
-    padding: 15px 15px 15px 100px;
-    background: #fafafa;
-    border-bottom: 1px solid var(--dark-primary);
+  display: flex;
+  align-items: center;
+  position: relative;
+  min-height: 95px;
+  padding: 15px 15px 15px 100px;
+  background: #fafafa;
+  border-bottom: 1px solid var(--dark-primary);
 }
 .service-row + .service-row {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 .service-row > a:first-child {
-    position: absolute;
-    left: 15px;
-    top: 15px;
+  position: absolute;
+  left: 15px;
+  top: 15px;
 }
 .service-row h4 {
-    margin: 0;
-    line-height: 1.3;
+  margin: 0;
+  line-height: 1.3;
 }
 .service-row .img-thumbnail {
-    width: 64px;
-    height: 64px;
+  width: 64px;
+  height: 64px;
 }
 
 .service .description {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 /* REQUEST FORM */
 
 .request-form .form {
-    margin: 30px 0;
-    padding: 30px 15px;
-    background: #f8f8f8;
+  margin: 30px 0;
+  padding: 30px 15px;
+  background: #f8f8f8;
 }
 .request-form .commands {
-    text-align: center;
+  text-align: center;
 }
 .form-tabs:first-child {
-    margin: 0;
+  margin: 0;
 }
 .form-tabs .nav-tabs {
-    margin: 1rem 0 0 0 !important;
+  margin: 1rem 0 0 0 !important;
 }
 .form-tabs .tab-pane {
-    padding: 1rem;
-    background: white;
-    border: 1px solid #ddd;
-    border-top: none;
+  padding: 1rem;
+  background: white;
+  border: 1px solid #ddd;
+  border-top: none;
 }
 /* REQUESTS */
 
 .request-item {
-    justify-content: left;
+  justify-content: left;
 }
 .request-item-id {
-    width: 25%;
-    overflow: hidden;
+  width: 25%;
+  overflow: hidden;
 }
 .request-item-state {
-    width: 20%;
+  width: 20%;
 }
 .request-item-icon {
-    margin-left: auto;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
+  margin-left: auto;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
 }
 .request-item-icon img {
-    width: 64px;
-    height: 64px;
+  width: 64px;
+  height: 64px;
 }
 
 /* COMMENTS */
 
 .comment-commands {
-    text-align: right;
-    margin-bottom: 15px;
+  text-align: right;
+  margin-bottom: 15px;
 }
 .comment-item-date {
-    width: 20%;
+  width: 20%;
 }
 .comment-item-sender {
-    width: 15%;
+  width: 15%;
 }
 .comment-item-message {
-    width: 65%;
+  width: 65%;
 }
 
 /* FILES */
 
 .file-item + .file-item {
-    margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px solid #ccc;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #ccc;
 }
 .file-item-link {
-    margin: 10px 0;
+  margin: 10px 0;
 }
 .file-uploader-commands {
-    margin: 5px 0 15px;
+  margin: 5px 0 15px;
 }
 .file-uploader-item {
-    position: relative;
-    padding-right: 35px;
+  position: relative;
+  padding-right: 35px;
 }
 .file-uploader-item + .file-uploader-item {
-    margin-top: 15px;
+  margin-top: 15px;
 }
 .file-uploader-item .btn {
-    position: absolute;
-    right: 0;
-    top: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
