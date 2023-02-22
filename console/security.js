@@ -20,35 +20,45 @@ const params = Console.parseProcessArguments();
 
 (async () => {
     switch (params.action) {
-        case 'createUsers':
+        case 'createUsers': {
             await instance.createUsers(); // from configuration
             break;
-        case 'createUser':
+        }
+        case 'createUser': {
             await instance.createUser(params);
             break;
-        case 'updateUser':
+        }
+        case 'updateUser': {
             await instance.updateUser(params);
             break;
-        case 'changePassword':
+        }
+        case 'changePassword': {
             await instance.changePassword(params);
             break;
-        case 'createSecurity':
+        }
+        case 'createSecurity': {
             await instance.createSecurity(); // from configuration
             break;
-        case 'assignRole':
+        }
+        case 'assignRole': {
             await instance.assignRole(params);
             break;
-        case 'export':
+        }
+        case 'export': {
             await instance.exportSecurity(params);
             break;
-        case 'import':
+        }
+        case 'import': {
             await instance.importSecurity(params);
             break;
-        case 'clear':
+        }
+        case 'clear': {
             await instance.clearSecurity(params);
             break;
-        default:
+        }
+        default: {
             instance.log('error', `Unknown action: ${params.action}`);
+        }
     }
     process.exit();
 })();

@@ -30,10 +30,12 @@ Vue.component('request-form', {
         async save () {
             try {
                 this.changed = false;
-                this.requestId = await this.fetchText(this.requestId ? 'update' : 'create', {
+                const action = this.requestId ? 'update' : 'create';
+                const data = this.getForm().serialize();
+                this.requestId = await this.fetchText(action, {
                     class: this.request,
-                    data: this.getForm().serialize(),
-                    id: this.requestId
+                    id: this.requestId,
+                    data
                 });
             } catch (err) {
                 this.showError(err);

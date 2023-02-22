@@ -15,13 +15,15 @@ module.exports = class UserDocumentReadRule extends Base {
         }
         const model = this.getTarget();
         const requestClass = model.class.meta.getClass('request');
-        const requests = await requestClass.findByCreator(this.getUserId()).ids();
+        const requestQuery = requestClass.findByCreator(this.getUserId());
+        const requests = await requestQuery.ids();
         const commentClass = requestClass.meta.getClass('comment');
-        const query = commentClass.find({
+        const commentQuery = commentClass.find({
             request: requests,
             documents: model.getId()
         });
-        return !!(await query.id());
+        const id = await commentQuery.id();
+        return !!id;
     }
 
     /**
@@ -30,9 +32,11 @@ module.exports = class UserDocumentReadRule extends Base {
     async getObjectFilter () {
         const meta = this.getBaseMeta();
         const requestClass = meta.getClass('request');
-        const requests = await requestClass.findByCreator(this.getUserId()).ids();
+        const requestQuery = requestClass.findByCreator(this.getUserId());
+        const requests = await requestQuery.ids();
         const commentClass = meta.getClass('comment');
-        const documents = await commentClass.find({request: requests}).column('documents');
+        const commentQuery = commentClass.find({request: requests});
+        const documents = await commentQuery.column('documents');
         return {_id: [].concat(...documents)};
     }
 };

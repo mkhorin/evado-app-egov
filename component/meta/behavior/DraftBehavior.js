@@ -21,7 +21,8 @@ module.exports = class DraftBehavior extends Base {
     unsetFormGroupValues () {
         const group = this.owner.view.grouping.getGroup('form');
         if (group) {
-            for (const attr of group.getAllAttrs()) {
+            const attrs = group.getAllAttrs();
+            for (const attr of attrs) {
                 this.owner.restoreOldValue(attr);
             }
         }
@@ -41,7 +42,9 @@ module.exports = class DraftBehavior extends Base {
             return true;
         }
         const cls = this.owner.class;
-        const found = await cls.findByState('draft').byCreator(this.owner.getCreator()).id();
+        const creator = this.owner.getCreator();
+        const query = cls.findByState('draft').byCreator(creator);
+        const found = await query.id();
         if (found) {
             this.owner.addError(cls.CLASS_ATTR, `Draft already exists: ${found}`);
         }
@@ -50,7 +53,8 @@ module.exports = class DraftBehavior extends Base {
     async beforeTransit () {
         const state = this.owner.getStateName();
         if (state === 'draft') {
-            for (const validator of this.extractRequiredValidators()) {
+            const validators = this.extractRequiredValidators();
+            for (const validator of validators) {
                 await validator.execute(this.owner);
             }
         }

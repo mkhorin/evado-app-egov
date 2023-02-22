@@ -66,8 +66,8 @@ Vue.mixin({
         },
         fetchByMethod (name, url, data, options) {
             try {
-                const csrf = this.$root.csrf;
                 this.loading = true;
+                const csrf = this.$root.csrf;
                 return (new Jam.Fetch)[name](url, {csrf, ...data}, options);
             } finally {
                 this.loading = false;
