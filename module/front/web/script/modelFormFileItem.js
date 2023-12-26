@@ -30,7 +30,7 @@ Vue.component('model-form-file-item', {
         async upload () {
             try {
                 this.hint = Jam.t('File is uploading...');
-                const file = this.file;
+                const {file} = this;
                 const {id} = await this.fetchFile(this.metaClass, file);
                 this.id = await this.create(id, file.name);
                 this.hint = Jam.t('File uploaded');

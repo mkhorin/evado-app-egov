@@ -22,7 +22,7 @@ docker-compose up -d server
 ## Typical installation
 
 #### Install environment
-- [Node.js](https://nodejs.org) (version 16)
+- [Node.js](https://nodejs.org) (version 20)
 - [MongoDB](https://www.mongodb.com/download-center/community) (version 5)
 
 #### Linux
